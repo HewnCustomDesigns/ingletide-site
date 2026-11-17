@@ -2,11 +2,11 @@
 <html lang="en">
 <head>
   <meta charset="utf-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1">
-  <title>Ingletide: time together, by the fire</title>
-  <meta name="description" content="Ingletide counts the time your family spends together with phones set aside. Capture the moments that make a family.">
+  <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+  <title>Ingletide: time together, phones set aside</title>
+  <meta name="description" content="Ingletide keeps a record of the time you spend with the people you love, with phones locked and set aside. For Android and iPhone.">
   <meta property="og:title" content="Ingletide">
-  <meta property="og:description" content="Time together, by the fire. Capture the moments that make a family.">
+  <meta property="og:description" content="Remember the evenings you were really there.">
   <meta property="og:url" content="https://ingletide.com/">
   <meta property="og:type" content="website">
   <meta property="og:image" content="https://ingletide.com/img/og-image.png">
@@ -15,80 +15,194 @@
   <meta property="og:image:alt" content="The Ingletide logo: people gathered round a small fire">
   <meta name="twitter:card" content="summary_large_image">
   <link rel="canonical" href="https://ingletide.com/">
-  <meta name="theme-color" content="#1f2036">
+  <meta name="theme-color" content="#1A1311">
   <link rel="icon" href="/favicon.ico" sizes="any">
   <link rel="icon" href="/img/favicon-32.png" type="image/png">
   <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Young+Serif&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles.css">
+  <link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,300..700;1,9..144,300..500&family=Inter:wght@400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/home.css">
 </head>
 <body>
-  <header class="site-header wrap">
-    <a class="wordmark" href="/">Ingletide</a>
-    <nav aria-label="Main">
-      <a href="support.html">Support</a>
-      <a href="privacy.html">Privacy</a>
-    </nav>
+<div class="gut"><div class="wrap">
+  <header class="site-nav">
+    <a class="brand" href="/" id="top"><img class="logo" src="/img/icon-512.png" alt="">Ingletide</a>
+    <nav aria-label="Main"><a href="#story1" class="hide-sm">How it works</a><a href="support.html">Support</a><a href="privacy.html">Privacy</a></nav>
   </header>
-
-  <main>
-    <section class="hearth wrap" aria-labelledby="hero-title">
-      <div class="glow" aria-hidden="true"></div>
-      <div class="hearth-text">
-        <h1 id="hero-title">Time together, by the fire.</h1>
-        <p class="lede">Capture the moments that make a family. Ingletide counts the time you spend together with your phones set aside.</p>
-        <a class="button" href="mailto:hello@ingletide.com?subject=Tell%20me%20when%20Ingletide%20launches">Email me when it launches</a>
-        <span class="note">Coming soon to Android and iPhone.</span>
-      </div>
-    </section>
-
-    <section class="section wrap" aria-labelledby="how-title">
-      <h2 id="how-title">How it works</h2>
-      <ol class="steps">
-        <li>
-          <h3>Gather</h3>
-          <p>Start a session when your family is in the same room: dinner, a board game, a walk.</p>
-        </li>
-        <li>
-          <h3>Set the phones aside</h3>
-          <p>Lock your phones and put them down. Ingletide notices they're close together and left alone.</p>
-        </li>
-        <li>
-          <h3>Watch the time add up</h3>
-          <p>Every shared hour goes into your family's record, so you can see how much time you've really spent together.</p>
-        </li>
-      </ol>
-    </section>
-
-    <section class="section wrap" aria-labelledby="word-title">
-      <div class="word">
-        <div>
-          <h2 id="word-title">An old word for fireside time</h2>
-          <p>Long before screens, families gathered around the hearth at the end of the day. Ingletide is named for that hour.</p>
-          <blockquote>
-            Fast by an ingle, bleezing finely
-            <cite>Robert Burns, Tam o' Shanter (1791)</cite>
-          </blockquote>
+  <section class="hero">
+    <div>
+      <h1>Remember the evenings you were <b>really there.</b></h1>
+      <p class="lede">Ingletide keeps a record of the time you spend with the people you love, with phones locked and set aside.</p>
+      <div class="stores" data-stores></div>
+      <p class="small">For Android and iPhone.</p>
+    </div>
+    <div class="phone" aria-label="Example: the summary after a game night">
+      <div class="screen">
+        <div class="occ">Game night</div>
+        <div class="when">Nov 14 · 7:12 to 9:52 pm</div>
+        <div class="fire-slot" id="phone-slot"></div>
+        <div class="big">2h 14m<small>present, of 2h 40m together</small></div>
+        <div class="bar"><i></i></div>
+        <div class="who">
+          <div><span class="av">M</span>Maya<span class="tm">2h 14m</span></div>
+          <div><span class="av">J</span>Jordan<span class="tm">2h 02m</span></div>
+          <div><span class="av t">S</span>Sam<span class="tm">1h 31m</span></div>
         </div>
-        <dl>
-          <dt>ingle</dt>
-          <dd>A Scots word for a fire burning on the hearth, from the Gaelic for fire and light.</dd>
-          <dt>tide</dt>
-          <dd>An old word for a time or season, as in Yuletide.</dd>
-        </dl>
+        <div class="moment"><b>Maya</b> · Jordan finally won Catan. We'll never hear the end of it.</div>
       </div>
-    </section>
-  </main>
+    </div>
+  </section>
+</div></div>
 
-  <footer class="site-footer wrap">
-    <ul>
-      <li><a href="support.html">Support</a></li>
-      <li><a href="privacy.html">Privacy policy</a></li>
-      <li><a href="delete-account.html">Delete your account</a></li>
-    </ul>
-    <p>&copy; 2026 Ingletide. Made in British Columbia.</p>
-  </footer>
+<div class="story" id="story1">
+  <div class="scene gut" aria-hidden="true">
+    <div class="box">
+      <div class="gather" id="gather">
+        <div class="hearthglow" id="glow"></div>
+        <div class="occasion" id="occasion"><b id="occ-name">Coffee for two</b></div>
+        <div class="tbl" id="tbl"><div class="board"></div></div>
+      </div>
+    </div>
+  </div>
+  <div class="beats gut">
+    <section class="beat"><div class="card">
+      <p class="kicker">Present time</p>
+      <h2>Be there for the whole evening.</h2>
+      <p>Lock your phone and set it down, and the time counts as Present. Need to take a call? Unlock and go. Your time picks back up when you lock again. Nothing is ever blocked.</p>
+    </div></section>
+    <section class="beat"><div class="card">
+      <p class="kicker">Everyone, the same way</p>
+      <h2>Nobody has to be the phone police.</h2>
+      <p>The phones keep track quietly, so no one has to ask. Everyone plays by the same simple rule, grown-ups included, and nobody is ranked against anyone else.</p>
+    </div></section>
+    <section class="beat"><div class="card">
+      <p class="kicker">Any gathering</p>
+      <h2>Room for everyone.</h2>
+      <p>Coffee for two, a double date, the whole family at the table. Anyone nearby with Ingletide can join with one tap.</p>
+    </div></section>
+  </div>
+</div>
+
+<section class="cal gut" id="cal">
+  <div class="cal-in">
+    <div class="calbox" aria-hidden="true">
+      <div class="season" id="season">
+        <div class="hd"><span>You and Dad</span><small>Jun to Nov</small></div>
+        <div class="months"><span>Jun</span><span>Jul</span><span>Aug</span><span>Sep</span><span>Oct</span><span>Nov</span></div>
+        <div class="heat" id="heat"></div>
+        <div class="tot"><div><b id="c-hours">0h</b>present</div><div><b id="c-even">0</b>evenings</div></div>
+      </div>
+    </div>
+    <div class="card static" id="cal-text">
+      <p class="kicker">Your time together</p>
+      <h2>A record you keep with each person.</h2>
+      <p>Every evening adds to your page together: the weekends you kept, the dinners that ran late, the hours adding up. Only the two of you can see it.</p>
+    </div>
+  </div>
+</section>
+
+<div class="story" id="story2">
+  <div class="scene gut" aria-hidden="true">
+    <div class="box">
+      <div class="mph" id="mph"><div class="ms" id="ms">
+        <div class="pg">
+          <div class="t1">Sunday lunch</div>
+          <div class="t2">Nov 16 · 12:30 to 3:35 pm</div>
+          <div class="stat">3h 05m<small>present together</small></div>
+          <div class="lbl" id="m-photos-l" style="display:none">Photos</div>
+          <div class="photo" id="m-photo"></div>
+          <div class="lbl" id="m-notes-l" style="display:none">Notes</div>
+          <div class="note" id="m-note"></div>
+          <div class="lbl" id="m-your">Your moment</div>
+          <div class="tiles">
+            <div class="tile" id="t-photo"><svg viewBox="0 0 24 24" fill="none" stroke="#F2A541" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><rect x="3" y="6" width="18" height="14" rx="3"/><circle cx="12" cy="13" r="3.5"/><path d="M8.5 6l1.5-2h4l1.5 2"/></svg>Add a photo</div>
+            <div class="tile" id="t-note"><svg viewBox="0 0 24 24" fill="none" stroke="#F2A541" stroke-width="1.8" stroke-linecap="round" stroke-linejoin="round"><path d="M4 20h4L19 9l-4-4L4 16v4z"/><path d="M13.5 6.5l4 4"/></svg>Add a note</div>
+          </div>
+        </div>
+        <div class="layer dialog" id="l-ask"><div class="dlg"><h4>Add a photo</h4><span id="o-take">Take a photo</span><span>Choose from your photos</span><span class="c">Cancel</span></div></div>
+        <div class="layer vf" id="l-cam"><div class="view" data-photo></div><div class="shutter" id="o-shutter"></div></div>
+        <div class="layer flash" id="l-flash"></div>
+        <div class="layer pv" id="l-prev"><h4>Your photo</h4><div class="ph2" data-photo></div><div class="btn" id="o-use">Use this photo</div><div class="btn sec">Choose another</div></div>
+        <div class="layer sheet" id="l-sheet"><div class="sh"><div class="row"><span class="cancel">Cancel</span><b>Your note</b><span class="save" id="o-save">Save</span></div><div class="input" id="typed"><span class="ph3">A few words to remember it by</span></div><div class="kb"></div></div></div>
+        <div class="finger" id="finger"></div>
+      </div></div>
+    </div>
+  </div>
+  <div class="beats gut">
+    <section class="beat"><div class="card">
+      <p class="kicker">Photos</p>
+      <h2>Keep a picture from the night.</h2>
+      <p>Once you're done, add one photo to the evening. Choosing it is part of remembering.</p>
+    </div></section>
+    <section class="beat"><div class="card">
+      <p class="kicker">Notes</p>
+      <h2>Write it down while it's fresh.</h2>
+      <p>A few words: the joke, the win, the recipe nobody will share. Years from now, that's what you'll want to find.</p>
+    </div></section>
+  </div>
+</div>
+
+<div class="gut"><div class="wrap">
+  <section class="close" id="get">
+    <div class="fan" id="fan" role="img" aria-label="Five screens from the app: a live session, the lock-screen timer, Home, a session summary, and your page with Dad">
+      <div class="fp f1"><div class="fs deep">
+        <div class="h c">Game night</div>
+        <div class="m c" style="margin-top:-3cqw">3 of 4 phones locked</div>
+        <div class="big c" style="margin-top:4cqw">1:24:08<small>present together</small></div>
+        <div class="row" style="margin-top:4cqw"><span class="dot">M</span>Maya<span class="pill">Present</span></div>
+        <div class="row"><span class="dot">J</span>Jordan<span class="pill">Present</span></div>
+        <div class="row"><span class="dot">S</span>Sam<span class="pill">Present</span></div>
+        <div class="row"><span class="dot o">A</span>Alex<span class="pill u">Phone unlocked</span></div>
+        <div class="m c" style="margin-top:auto">Lock your phone and set it down</div>
+      </div></div>
+      <div class="fp f2"><div class="fs lock">
+        <div class="m c">Friday, Nov 14</div>
+        <div class="lt">8:36</div>
+        <div class="ln">
+          <div class="hd"><i></i>Ingletide · Game night</div>
+          <div class="big" style="font-size:9cqw">1:24:08<small>present together</small></div>
+          <div class="barx"><i style="width:62%"></i></div>
+          <div class="m">4 here</div>
+        </div>
+      </div></div>
+      <div class="fp f3"><div class="fs">
+        <div class="h">Good evening, Maya</div>
+        <div class="firebox" data-fire-slot></div>
+        <div class="lbl">November so far</div>
+        <div class="stats"><div class="p"><b>9h 40m</b>Present, phones down</div><div><b>21h 15m</b>Together, in person</div></div>
+        <div class="lbl">Your people</div>
+        <div class="faces"><span class="dot">J</span><span class="dot">D</span><span class="dot t">S</span><span class="dot">A</span><span class="dot t">N</span></div>
+        <div class="btnx">Start together time</div>
+      </div></div>
+      <div class="fp f4"><div class="fs">
+        <div class="h c">Game night</div>
+        <div class="m c" style="margin-top:-3cqw">Nov 14 · 7:12 to 9:52 pm</div>
+        <div class="big c" style="margin-top:4cqw">2h 14m<small>present, of 2h 40m together</small></div>
+        <div class="barx"><i style="width:84%"></i></div>
+        <div class="row" style="margin-top:2cqw"><span class="dot">M</span>Maya<span class="r">2h 14m</span></div>
+        <div class="row"><span class="dot">J</span>Jordan<span class="r">2h 02m</span></div>
+        <div class="row"><span class="dot t">S</span>Sam<span class="r">1h 31m</span></div>
+        <div class="note"><b>Maya</b> · Jordan finally won Catan.</div>
+      </div></div>
+      <div class="fp f5"><div class="fs">
+        <div class="h">You and Dad</div>
+        <div class="m" style="margin-top:-3cqw">November · goal 5h</div>
+        <div class="big" style="font-size:10cqw;margin-top:2cqw">3h 20m<small>present this month</small></div>
+        <div class="barx"><i style="width:66%"></i></div>
+        <div class="lbl" style="margin-top:2cqw">Last 12 weeks</div>
+        <div class="hm" id="fan-hm"></div>
+        <div class="note">Taught me his chili recipe. Still won't share the secret.<small>Sunday lunch · Nov 16</small></div>
+      </div></div>
+    </div>
+    <div class="copy">
+      <p>The time we get with each other is limited. <em>Make your next evening count.</em></p>
+      <div class="stores" data-stores></div>
+    </div>
+  </section>
+  <footer class="site-foot"><span>&copy; 2026 Ingletide · Made in British Columbia</span><ul><li><a href="support.html">Support</a></li><li><a href="privacy.html">Privacy policy</a></li><li><a href="delete-account.html">Delete your account</a></li></ul></footer>
+</div></div>
+
+<script src="/home.js"></script>
 </body>
 </html>
