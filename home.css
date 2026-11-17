@@ -38,8 +38,9 @@ a { color: var(--present); }
 
 /* Nav */
 .site-nav { display: flex; align-items: center; justify-content: space-between; padding-block: 20px; gap: 16px; }
-.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-family: var(--serif); font-size: 22px; font-variation-settings: "opsz" 40; }
-.brand img { width: 34px; height: 34px; border-radius: 9px; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-family: var(--serif); font-size: 30px; font-variation-settings: "opsz" 40; }
+.brand img { width: 46px; height: 46px; border-radius: 12px; }
+.brand { gap: 12px; }
 .site-nav nav { display: flex; gap: 22px; font-size: 15px; }
 .site-nav nav a { color: var(--muted); text-decoration: none; transition: color 160ms var(--ease-out); }
 .site-nav nav a:hover { color: var(--text); }
@@ -78,7 +79,7 @@ a { color: var(--present); }
 .card p { color: var(--soft); margin: 0; font-size: 18px; max-width: 36ch; }
 
 /* Warm light in the middle of the group */
-.hearthglow { position: absolute; left: 50%; top: 52%; width: 70%; aspect-ratio: 1; translate: -50% -50%; border-radius: 50%;
+.hearthglow { position: absolute; left: 50%; top: 52%; width: 70%; transition: left 1000ms var(--spring), top 1000ms var(--spring), width 1000ms var(--spring); aspect-ratio: 1; translate: -50% -50%; border-radius: 50%;
   background: radial-gradient(circle, rgba(242,165,65,0.30) 0%, rgba(232,132,60,0.10) 35%, rgba(26,19,17,0) 65%); animation: breathe 6s ease-in-out infinite; }
 @keyframes breathe { 0%,100% { scale: 1; } 50% { scale: 1.06; } }
 
@@ -181,7 +182,7 @@ a { color: var(--present); }
 
 /* A fan of app screens */
 .fan { position: relative; width: 100%; max-width: 1000px; height: clamp(340px, 48vw, 580px); container-type: inline-size; }
-.fp { position: absolute; left: 50%; bottom: 9%; width: clamp(150px, 22cqw, 232px); aspect-ratio: 9 / 19.5; border-radius: 13% / 6%; padding: 1.6%;
+.fp { position: absolute; left: 50%; bottom: 9%; width: clamp(150px, 22cqw, 232px); border-radius: 13% / 6%; padding: 6px;
   background: #0b0807; border: 1px solid var(--border); box-shadow: 0 30px 60px rgba(0,0,0,0.5);
   transform-origin: 50% 150%; transform: translateX(-50%) rotate(0deg); transition: transform 1000ms var(--spring) var(--dl, 0ms); }
 .fan.open .fp { transform: translateX(calc(-50% + var(--x))) translateY(var(--y, 0%)) rotate(var(--r)); }
@@ -297,3 +298,5 @@ a { color: var(--present); }
 .fp .screen-slot { border-radius: 11.5% / 5.3%; }
 .mph .screen-slot { border-radius: 5.5cqw; }
 .ms .msc { position: absolute; left: 0; right: 0; top: 46px; bottom: 0; overflow: hidden; scroll-behavior: smooth; }
+
+@media (max-width: 420px) { .brand { font-size: 26px; } .brand img { width: 40px; height: 40px; } }

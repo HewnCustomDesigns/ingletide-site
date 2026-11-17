@@ -75,6 +75,8 @@ function setTable(st) {
   Object.assign(tbl.style, { left: st.t.x + '%', top: st.t.y + '%', width: st.t.w + '%', height: st.t.h + '%', borderRadius: st.t.r, opacity: 1 });
   tbl.classList.toggle('game', !!st.game);
   occ.style.left = st.label[0] + '%'; occ.style.top = st.label[1] + '%';
+  // the warm light sits on the table and grows with it
+  const g = $('glow'); g.style.left = st.t.x + '%'; g.style.top = st.t.y + '%'; g.style.width = Math.max(56, st.t.w * 1.45) + '%';
 }
 function phoneSpot(k) {
   const st = STEPS[step], p = people[k];
@@ -367,7 +369,7 @@ function paintHeat(fill) {
 function startHeat() {
   heatStarted = true;
   if (reduce) { paintHeat(1); return; }
-  const t0 = performance.now(), dur = 2000;
+  const t0 = performance.now(), dur = 1000;
   cancelAnimationFrame(heatRaf);
   (function tick(now) {
     const f = clamp((now - t0) / dur);
