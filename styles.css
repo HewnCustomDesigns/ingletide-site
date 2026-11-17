@@ -283,3 +283,37 @@ blockquote cite {
   .doc tr { border-bottom: 1px solid var(--line); padding: 0.75rem 0; }
   .doc td:first-child { font-weight: 700; }
 }
+
+/* Link pages: invite and join (open the app, or the store) */
+.handoff {
+  max-width: 26rem;
+  margin: 0 auto;
+  padding: 2rem 0 5rem;
+  text-align: center;
+  display: flex;
+  flex-direction: column;
+  gap: 1.1rem;
+}
+.handoff img { width: 6.5rem; height: 6.5rem; align-self: center; border-radius: 22%; }
+.handoff h1 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(2rem, 7vw, 2.6rem);
+  line-height: 1.1;
+  margin: 0.5rem 0 0;
+  text-wrap: balance;
+}
+.handoff p { margin: 0; color: var(--smoke); }
+.handoff .button { display: block; padding: 1rem 1.4rem; }
+.button-quiet {
+  display: block;
+  padding: 0.85rem 1.4rem;
+  border: 1px solid var(--line);
+  border-radius: 999px;
+  color: var(--ash);
+  text-decoration: none;
+  font-weight: 700;
+}
+.button-quiet:hover { border-color: var(--ember); color: var(--ash); }
+.handoff .small { font-size: 0.95rem; }
+.hidden { display: none !important; }

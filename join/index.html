@@ -1,0 +1,72 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <meta name="robots" content="noindex">
+  <title>Join together time | Ingletide</title>
+  <meta name="theme-color" content="#1f2036">
+  <meta property="og:title" content="Join their together time">
+  <meta property="og:description" content="Someone nearby is spending time together, phones set aside, with Ingletide.">
+  <meta property="og:image" content="https://ingletide.com/img/og-image.png">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/img/favicon-32.png" type="image/png">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Atkinson+Hyperlegible:wght@400;700&family=Young+Serif&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css">
+  <!--
+    Join codes (https://ingletide.com/join/?k=CODE, shown as a QR code during
+    together time) land here. The page hands the code to the app
+    (hearth://together?k=CODE; the app's internal link name stays "hearth"),
+    or sends people to the store. Nothing is stored or sent anywhere.
+  -->
+</head>
+<body>
+  <header class="site-header wrap">
+    <a class="wordmark" href="/">Ingletide</a>
+  </header>
+
+  <main class="wrap">
+    <div class="handoff">
+      <img src="/img/icon-512.png" alt="">
+      <h1>Join their together time</h1>
+      <p>Someone nearby is spending time together, phones set aside, with Ingletide. Open it to join them.</p>
+
+      <a class="button" id="open" href="#">Open in Ingletide</a>
+      <a class="button-quiet" id="play" href="https://play.google.com/store/apps/details?id=com.hewncustomdesigns.hearth">Get it on Google Play</a>
+      <a class="button-quiet" id="appstore" href="https://apps.apple.com/app/id6834680745">Get it on the App Store</a>
+      <p class="small" id="how">Install Ingletide, then come back and tap "Open in Ingletide".</p>
+      <p class="small hidden" id="bad">This link is missing its code. Ask them to show it again.</p>
+    </div>
+  </main>
+
+  <script>
+    (function () {
+      var ua = navigator.userAgent;
+      var android = /Android/i.test(ua);
+      var ios = /iPhone|iPad|iPod/i.test(ua) || (/Macintosh/.test(ua) && navigator.maxTouchPoints > 1);
+      if (android) document.getElementById('appstore').classList.add('hidden');
+      if (ios) document.getElementById('play').classList.add('hidden');
+
+      var match = /[?&]k=([0-9a-fA-F]{64})/.exec(location.search);
+      var code = match ? match[1].toLowerCase() : null;
+      if (!code) {
+        document.getElementById('open').classList.add('hidden');
+        document.getElementById('how').classList.add('hidden');
+        document.getElementById('bad').classList.remove('hidden');
+        return;
+      }
+      var play = 'https://play.google.com/store/apps/details?id=com.hewncustomdesigns.hearth';
+      // On Android, an intent link opens the app if installed, otherwise Google Play.
+      var openHref = android
+        ? 'intent://together?k=' + code + '#Intent;scheme=hearth;package=com.hewncustomdesigns.hearth;S.browser_fallback_url=' + encodeURIComponent(play) + ';end'
+        : 'hearth://together?k=' + code;
+      document.getElementById('open').href = openHref;
+      // Try once straight away on Android; some in-app browsers block this, so the button stays.
+      if (android) setTimeout(function () { location.href = openHref; }, 300);
+    })();
+  </script>
+</body>
+</html>

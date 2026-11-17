@@ -1,0 +1,6 @@
+User-agent: *
+Allow: /
+Disallow: /invite/
+Disallow: /join/
+
+Sitemap: https://ingletide.com/sitemap.xml
