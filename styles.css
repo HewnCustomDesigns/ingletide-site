@@ -1,0 +1,285 @@
+/* Ingletide — fireside at dusk */
+:root {
+  --dusk: #1f2036;      /* evening sky through the window */
+  --coal: #15162a;      /* deepest shadow */
+  --ash: #ece5da;       /* text, like pale ash */
+  --smoke: #a3a2bd;     /* secondary text */
+  --ember: #f2a541;     /* the one warm light */
+  --ember-deep: #c8742a;
+  --line: rgba(236, 229, 218, 0.14);
+
+  --display: "Young Serif", Georgia, serif;
+  --body: "Atkinson Hyperlegible", system-ui, sans-serif;
+
+  --measure: 36rem;
+}
+
+* { box-sizing: border-box; }
+
+html { -webkit-text-size-adjust: 100%; }
+
+body {
+  margin: 0;
+  background: var(--dusk);
+  color: var(--ash);
+  font-family: var(--body);
+  font-size: 1.125rem;
+  line-height: 1.6;
+}
+
+a { color: var(--ember); text-underline-offset: 0.2em; }
+a:hover { color: #ffc674; }
+a:focus-visible, .button:focus-visible {
+  outline: 3px solid var(--ember);
+  outline-offset: 3px;
+  border-radius: 4px;
+}
+
+.wrap {
+  max-width: 64rem;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+}
+
+/* Header */
+.site-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: baseline;
+  padding-top: 1.75rem;
+  padding-bottom: 1.75rem;
+}
+.wordmark {
+  font-family: var(--display);
+  font-size: 1.5rem;
+  color: var(--ash);
+  text-decoration: none;
+  letter-spacing: 0.01em;
+}
+.wordmark:hover { color: var(--ash); }
+.site-header nav a {
+  color: var(--smoke);
+  text-decoration: none;
+  margin-left: 1.25rem;
+  font-size: 1rem;
+}
+.site-header nav a:hover { color: var(--ash); }
+
+/* Hero: the hearth */
+.hearth {
+  position: relative;
+  min-height: 78vh;
+  display: grid;
+  align-items: end;
+  padding-bottom: 5rem;
+  overflow: hidden;
+}
+.glow {
+  position: absolute;
+  left: 50%;
+  bottom: -22rem;
+  width: 56rem;
+  height: 56rem;
+  transform: translateX(-50%);
+  border-radius: 50%;
+  background: radial-gradient(circle at 50% 50%,
+    rgba(242, 165, 65, 0.7) 0%,
+    rgba(200, 116, 42, 0.34) 28%,
+    rgba(31, 32, 54, 0) 62%);
+  animation: breathe 7s ease-in-out infinite;
+  pointer-events: none;
+}
+@keyframes breathe {
+  0%, 100% { opacity: 0.85; transform: translateX(-50%) scale(1); }
+  50%      { opacity: 1;    transform: translateX(-50%) scale(1.04); }
+}
+@media (prefers-reduced-motion: reduce) {
+  .glow { animation: none; }
+}
+
+.hearth-text { position: relative; max-width: 44rem; }
+.hearth h1 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(2.75rem, 7vw, 5.25rem);
+  line-height: 1.04;
+  margin: 0 0 1.5rem;
+  letter-spacing: -0.01em;
+  text-wrap: balance;
+}
+.hearth .lede {
+  font-size: 1.3rem;
+  color: var(--ash);
+  max-width: 32rem;
+  margin: 0 0 2rem;
+}
+
+.button {
+  display: inline-block;
+  background: var(--ember);
+  color: var(--coal);
+  font-weight: 700;
+  text-decoration: none;
+  padding: 0.85rem 1.4rem;
+  border-radius: 999px;
+}
+.button:hover { background: #ffc674; color: var(--coal); }
+.note {
+  display: block;
+  margin-top: 0.9rem;
+  font-size: 0.95rem;
+  color: var(--smoke);
+}
+
+/* Sections */
+.section {
+  padding-top: 5rem;
+  padding-bottom: 5rem;
+  border-top: 1px solid var(--line);
+}
+.section h2 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(1.9rem, 4vw, 2.6rem);
+  line-height: 1.15;
+  margin: 0 0 2rem;
+  max-width: 30rem;
+}
+.section p { max-width: var(--measure); }
+
+/* How it works: a real sequence */
+.steps {
+  list-style: none;
+  counter-reset: step;
+  padding: 0;
+  margin: 0;
+  display: grid;
+  gap: 2.5rem;
+  grid-template-columns: repeat(auto-fit, minmax(15rem, 1fr));
+}
+.steps li { counter-increment: step; }
+.steps li::before {
+  content: counter(step);
+  display: block;
+  font-family: var(--display);
+  font-size: 2.5rem;
+  color: var(--ember);
+  line-height: 1;
+  margin-bottom: 0.75rem;
+}
+.steps h3 {
+  font-size: 1.2rem;
+  margin: 0 0 0.4rem;
+}
+.steps p { margin: 0; color: var(--smoke); }
+
+/* The word */
+.word {
+  display: grid;
+  gap: 2rem 4rem;
+  grid-template-columns: 1fr;
+}
+@media (min-width: 48rem) {
+  .word { grid-template-columns: 1fr 1.2fr; align-items: start; }
+}
+.word dl { margin: 0; }
+.word dt {
+  font-family: var(--display);
+  font-size: 2rem;
+  color: var(--ember);
+  margin-top: 1.25rem;
+}
+.word dt:first-child { margin-top: 0; }
+.word dd { margin: 0.25rem 0 0; color: var(--smoke); max-width: 26rem; }
+blockquote {
+  margin: 1.5rem 0 0;
+  padding-left: 1.25rem;
+  border-left: 2px solid var(--ember-deep);
+  font-family: var(--display);
+  font-size: 1.25rem;
+  color: var(--ash);
+}
+blockquote cite {
+  display: block;
+  margin-top: 0.5rem;
+  font-family: var(--body);
+  font-style: normal;
+  font-size: 0.95rem;
+  color: var(--smoke);
+}
+
+/* Footer */
+.site-footer {
+  border-top: 1px solid var(--line);
+  padding-top: 2.5rem;
+  padding-bottom: 3rem;
+  color: var(--smoke);
+  font-size: 0.95rem;
+}
+.site-footer ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 1.25rem;
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.5rem;
+}
+.site-footer a { color: var(--ash); }
+.site-footer p { margin: 0; }
+
+/* Plain document pages: privacy, deletion, support */
+.doc {
+  max-width: 42rem;
+  padding-top: 2rem;
+  padding-bottom: 5rem;
+}
+.doc h1 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: clamp(2.25rem, 5vw, 3.25rem);
+  line-height: 1.1;
+  margin: 1rem 0 0.75rem;
+}
+.doc .updated { color: var(--smoke); margin: 0 0 2.5rem; }
+.doc h2 {
+  font-family: var(--display);
+  font-weight: 400;
+  font-size: 1.6rem;
+  margin: 2.75rem 0 0.75rem;
+}
+.doc h3 { font-size: 1.15rem; margin: 1.75rem 0 0.5rem; }
+.doc li { margin-bottom: 0.5rem; }
+.doc table {
+  width: 100%;
+  border-collapse: collapse;
+  margin: 1rem 0;
+  font-size: 1rem;
+}
+.doc th, .doc td {
+  text-align: left;
+  vertical-align: top;
+  padding: 0.7rem 0.75rem 0.7rem 0;
+  border-bottom: 1px solid var(--line);
+}
+.doc th { color: var(--smoke); font-weight: 700; }
+.callout {
+  background: var(--coal);
+  border-left: 3px solid var(--ember);
+  padding: 1.1rem 1.25rem;
+  margin: 1.5rem 0;
+  border-radius: 0 6px 6px 0;
+}
+.callout p { margin: 0; }
+.callout p + p { margin-top: 0.6rem; }
+
+@media (max-width: 36rem) {
+  body { font-size: 1.0625rem; }
+  .site-header nav a { margin-left: 0.9rem; }
+  .hearth { min-height: 70vh; padding-bottom: 3.5rem; }
+  .glow { width: 36rem; height: 36rem; bottom: -15rem; }
+  .doc table, .doc thead, .doc tbody, .doc tr, .doc th, .doc td { display: block; }
+  .doc thead { display: none; }
+  .doc td { border-bottom: none; padding: 0.15rem 0; }
+  .doc tr { border-bottom: 1px solid var(--line); padding: 0.75rem 0; }
+  .doc td:first-child { font-weight: 700; }
+}
