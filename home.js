@@ -6,11 +6,10 @@ const ease = t => 1 - Math.pow(1 - t, 3);
 const lerp = (a, b, t) => a + (b - a) * t;
 
 document.querySelectorAll('img.logo').forEach(i => i.src = A.logo);
-const playIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M4 2.8v18.4c0 .5.5.8.9.6l15.4-8.7c.5-.3.5-.9 0-1.2L4.9 2.2C4.5 2 4 2.3 4 2.8z"/></svg>';
-const appleIcon = '<svg viewBox="0 0 24 24" aria-hidden="true"><path fill="currentColor" d="M16.4 12.6c0-2.4 2-3.6 2.1-3.7-1.1-1.7-2.9-1.9-3.5-1.9-1.5-.2-2.9.9-3.7.9-.8 0-1.9-.9-3.2-.8-1.6 0-3.1 1-4 2.4-1.7 3-.4 7.4 1.2 9.8.8 1.2 1.8 2.5 3 2.4 1.2 0 1.7-.8 3.1-.8 1.5 0 1.9.8 3.2.8 1.3 0 2.1-1.2 2.9-2.4.9-1.4 1.3-2.7 1.3-2.8-.1 0-2.4-.9-2.4-3.9zM14 5.5c.7-.8 1.1-1.9 1-3-1 0-2.1.7-2.8 1.5-.6.7-1.2 1.8-1 2.9 1.1.1 2.1-.6 2.8-1.4z"/></svg>';
+// Official store badges (Google Play, App Store), one size
 document.querySelectorAll('[data-stores]').forEach(el => {
-  el.innerHTML = '<a class="store" href="https://play.google.com/store/apps/details?id=com.hewncustomdesigns.hearth">' + playIcon + '<span><small>GET IT ON</small><b>Google Play</b></span></a>' +
-                 '<a class="store" href="https://apps.apple.com/app/id6834680745">' + appleIcon + '<span><small>Download on the</small><b>App Store</b></span></a>';
+  el.innerHTML = '<a class="store" href="https://play.google.com/store/apps/details?id=com.hewncustomdesigns.hearth"><img src="/img/badges/google-play.png" alt="Get it on Google Play" width="564" height="168"></a>' +
+                 '<a class="store" href="https://apps.apple.com/app/id6834680745"><img src="/img/badges/app-store.svg" alt="Download on the App Store" width="120" height="40"></a>';
 });
 
 /* Hero phone fire (stage: campfire) */
