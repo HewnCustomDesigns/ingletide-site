@@ -17,7 +17,7 @@ document.querySelectorAll('[data-stores]').forEach(el => {
   const el = document.createElement('div'); el.className = 'fire'; el.setAttribute('aria-hidden', 'true');
   el.innerHTML = '<div class="glow"></div>';
   [['logs', A.fire.logs], ['back', A.fire.back], ['front', A.fire.front], ['core', A.fire.core]].forEach(([c, s]) => { const i = document.createElement('img'); i.src = s; i.alt = ''; i.className = c; el.appendChild(i); });
-  $('phone-slot').appendChild(el);
+  if ($('phone-slot')) $('phone-slot').appendChild(el);
 })();
 
 /* The photo being taken: lunch on a wooden table, seen from above */
@@ -203,6 +203,41 @@ for (let w = 0; w < 26 * 7; w++) {
 }
 
 /* ---- Capturing a moment: a photo (one section), then a note (the next) ---- */
+/* The photo-and-note phone: the rebuilt session page for a Sunday lunch, with the
+   app's own dialogs and sheets on top (they're animated below). */
+(function () {
+  const I = APP_ICONS, av = APP_AV;
+  const who = (l, n, p, t, w) => `<div class="who">${av(l, 48)}<div class="tx"><div class="top"><span>${n}</span><em><b>${p}</b> of ${t}</em></div><div class="bar"><b style="width:${w}%"></b></div></div></div>`;
+  $('mph').innerHTML = `<div class="screen-slot" data-fit><div class="as ms" id="ms">${APP_STATUSBAR('3:41')}
+    <div class="msc" id="msc">
+      <div class="sm-head">${I.back('#F5EEE4')}<div class="tt"><b>Sunday lunch</b><span>Sunday, Nov 15 · 12:30 pm to 3:35 pm</span></div><span class="sh">${I.share('#F5EEE4')}</span></div>
+      <div class="sm-card">${APP_FIRE(5)}<span class="num">3h 05m</span><span class="cap">present together, phones down</span><div class="bar"><b style="width:92%"></b></div><div class="leg"><span class="p">Present 3h 05m</span><span>Together 3h 20m</span></div></div>
+      <div class="sec"><span class="lbl">Who was there</span>${who('M', 'Maya', '3h 05m', '3h 20m', 92)}${who('D', 'Dad', '2h 58m', '3h 20m', 89)}${who('N', 'Nana', '2h 41m', '3h 05m', 87)}</div>
+      <div class="sec">
+        <span class="lbl" id="m-photos-l" style="display:none">Photos</span><div class="photo sphoto" id="m-photo"></div>
+        <span class="lbl" id="m-notes-l" style="display:none">Notes</span><div class="note snote" id="m-note"></div>
+        <span class="lbl" id="m-your">Your moment</span>
+        <div class="tiles"><div class="tile" id="t-photo">${I.camera('#F2A541')}Add a photo</div><div class="tile" id="t-note">${I.pencil('#F2A541')}Add a note</div></div>
+        <div style="height:40px"></div>
+      </div>
+    </div>
+    <div class="layer dialog" id="l-ask"><div class="dlg"><h4>Add a photo</h4><span id="o-take">Take a photo</span><span>Choose from your photos</span><span class="c">Cancel</span></div></div>
+    <div class="layer vf" id="l-cam"><div class="view" data-photo></div><div class="shutter" id="o-shutter"></div></div>
+    <div class="layer flash" id="l-flash"></div>
+    <div class="layer pv" id="l-prev"><h4>Your photo</h4><div class="ph2" data-photo></div><div class="btn" id="o-use">Use this photo</div><div class="btn sec">Choose another</div></div>
+    <div class="layer sheet" id="l-sheet"><div class="sh"><div class="row"><span class="cancel">Cancel</span><b>Your note</b><span class="save" id="o-save">Save</span></div><div class="input" id="typed"><span class="ph3">A few words to remember it by</span></div><div class="kb"></div></div></div>
+    <div class="finger" id="finger"></div>
+  </div></div>`;
+  $('mph').querySelectorAll('[data-photo]').forEach(el => el.innerHTML = PHOTO);
+  mountScreens($('mph'));
+})();
+// Scroll the session page so whatever was just added is in view
+function scrollMoment(smooth) {
+  const sc = $('msc');
+  sc.style.scrollBehavior = smooth ? 'smooth' : 'auto';
+  sc.scrollTop = sc.scrollHeight;
+}
+
 const ms = $('ms'), finger = $('finger');
 const NOTE = 'Dad finally taught me his chili. Still won’t tell me the secret ingredient.';
 let timers = [], mode = null;
@@ -224,7 +259,7 @@ function showPhoto(on) {
   $('m-photos-l').style.display = on ? '' : 'none'; $('t-photo').style.display = on ? 'none' : '';
 }
 function showNote(on) {
-  $('m-note').innerHTML = on ? '“' + NOTE + '”<b>Maya</b>' : ''; $('m-note').classList.toggle('show', on);
+  $('m-note').innerHTML = on ? '<div class="q">“' + NOTE + '”</div><div class="by">Maya</div>' : ''; $('m-note').classList.toggle('show', on);
   $('m-notes-l').style.display = on ? '' : 'none'; $('t-note').style.display = on ? 'none' : '';
   $('m-your').style.display = on && $('t-photo').style.display === 'none' ? 'none' : '';
 }
@@ -233,6 +268,7 @@ function resetMoment(photo) {
   ['l-ask', 'l-cam', 'l-flash', 'l-prev', 'l-sheet'].forEach(id => layer(id, false));
   finger.classList.remove('on', 'press');
   showPhoto(photo); showNote(false);
+  const sc = $('msc'); sc.style.scrollBehavior = 'auto'; sc.scrollTop = 0;
   $('typed').innerHTML = '<span class="ph3">A few words to remember it by</span>';
 }
 function playPhoto() {
@@ -241,16 +277,16 @@ function playPhoto() {
   tapAt('o-take', 1900, () => { layer('l-ask', false); layer('l-cam', true); });
   tapAt('o-shutter', 3700, () => layer('l-flash', true));
   at(4600, () => { layer('l-flash', false); layer('l-cam', false); layer('l-prev', true); });
-  tapAt('o-use', 5300, () => { layer('l-prev', false); showPhoto(true); });
+  tapAt('o-use', 5300, () => { layer('l-prev', false); showPhoto(true); scrollMoment(true); });
   at(9800, () => { if (mode === 'photo') playPhoto(); });
 }
 function playNote() {
-  resetMoment(true); mode = 'note';
+  resetMoment(true); scrollMoment(false); mode = 'note';
   tapAt('t-note', 700, () => { layer('l-sheet', true); $('typed').innerHTML = '<span class="caret"></span>'; });
   const start = 1600;
   for (let i = 1; i <= NOTE.length; i++) at(start + i * 45, () => { $('typed').innerHTML = NOTE.slice(0, i) + '<span class="caret"></span>'; });
   const done = start + NOTE.length * 45 + 500;
-  tapAt('o-save', done, () => { layer('l-sheet', false); showNote(true); });
+  tapAt('o-save', done, () => { layer('l-sheet', false); showNote(true); scrollMoment(true); });
   at(done + 4500, () => { if (mode === 'note') playNote(); });
 }
 function stopMoment() { if (!mode) return; mode = null; resetMoment(false); }
@@ -352,7 +388,7 @@ function resetHeat() { heatStarted = false; cancelAnimationFrame(heatRaf); paint
     slot.appendChild(el);
   });
   // The heatmap on "You and Dad"
-  const hm = $('fan-hm'); let sd = 3;
+  const hm = $('fan-hm') || document.createElement('div'); let sd = 3;
   const r = () => (sd = (sd * 9301 + 49297) % 233280) / 233280;
   const sh = ['var(--border)', '#5a3f2a', 'var(--track)', '#c27c3a', 'var(--present)'];
   for (let i = 0; i < 84; i++) { const c = document.createElement('i'); const v = r(); const we = i % 7 >= 4; c.style.background = sh[v > (we ? 0.5 : 0.85) ? 1 + Math.floor(v * 3.99) % 4 : 0]; hm.appendChild(c); }

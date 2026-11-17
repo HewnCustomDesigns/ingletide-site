@@ -58,21 +58,6 @@ a { color: var(--present); }
 .hero .lede { font-size: 19px; color: var(--soft); max-width: 32ch; margin: 0 0 28px; }
 .hero .small { margin: 14px 0 0; font-size: 14px; color: var(--muted); }
 .phone { width: min(330px, 100%); margin: 0 auto; border-radius: 42px; padding: 12px; background: #0b0807; border: 1px solid var(--border); box-shadow: 0 40px 80px rgba(0,0,0,0.45), 0 0 120px rgba(242,165,65,0.10); }
-.screen { border-radius: 32px; background: var(--bg); padding: 26px 20px 22px; display: flex; flex-direction: column; gap: 14px; }
-.screen .occ { text-align: center; font-family: var(--serif); font-size: 20px; }
-.screen .when { text-align: center; color: var(--muted); font-size: 13px; margin-top: -10px; }
-.fire-slot { width: 62%; aspect-ratio: 1; margin: -6px auto -14px; position: relative; }
-.screen .big { text-align: center; font-weight: 600; font-size: 40px; line-height: 1; font-variant-numeric: tabular-nums; }
-.screen .big small { display: block; font-weight: 400; font-size: 13px; color: var(--muted); margin-top: 6px; }
-.bar { height: 12px; border-radius: 999px; background: var(--track); overflow: hidden; }
-.bar i { display: block; height: 100%; border-radius: 999px; background: var(--present); width: 84%; }
-.who { display: flex; flex-direction: column; gap: 10px; border-top: 1px solid var(--border); padding-top: 14px; }
-.who div { display: flex; align-items: center; gap: 10px; font-size: 14px; }
-.av { width: 30px; height: 30px; border-radius: 50%; display: grid; place-items: center; background: var(--present); color: var(--on-present); font-weight: 600; font-size: 13px; flex: none; }
-.av.t { background: var(--together); }
-.who .tm { margin-left: auto; color: var(--soft); font-variant-numeric: tabular-nums; }
-.moment { background: var(--card); border-radius: 14px; padding: 12px 14px; font-size: 14px; color: var(--soft); }
-.moment b { color: var(--text); font-weight: 500; }
 
 /* ---------- The scene ---------- */
 .story { position: relative; }
@@ -141,7 +126,7 @@ a { color: var(--present); }
 .season .tot b { display: block; font-size: 6cqw; line-height: 1.1; color: var(--text); font-weight: 600; font-variant-numeric: tabular-nums; }
 
 /* Capturing a moment: a recreation of the app's session page */
-.mph { position: absolute; left: 50%; top: 50%; width: 47%; aspect-ratio: 9 / 19; translate: -50% -50%; border-radius: 6.5cqw; padding: 1.6cqw; background: #0b0807; border: 1px solid var(--border);
+.mph { position: absolute; left: 50%; top: 50%; width: 47%; aspect-ratio: 390 / 875; translate: -50% -50%; border-radius: 6.5cqw; padding: 1.6cqw; background: #0b0807; border: 1px solid var(--border);
   box-shadow: 0 5cqw 10cqw rgba(0,0,0,0.5); }
 .ms { position: relative; width: 100%; height: 100%; border-radius: 5cqw; overflow: hidden; background: var(--bg); container-type: inline-size; }
 .ms .pg { position: absolute; inset: 0; padding: 10cqw 6cqw; display: flex; flex-direction: column; gap: 4cqw; }
@@ -306,3 +291,9 @@ a { color: var(--present); }
 @media (max-width: 420px) {
   .store img { height: 46px; }
 }
+
+/* Rebuilt app screens inside the frames */
+.phone .screen-slot { border-radius: 32px; }
+.fp .screen-slot { border-radius: 11.5% / 5.3%; }
+.mph .screen-slot { border-radius: 5.5cqw; }
+.ms .msc { position: absolute; left: 0; right: 0; top: 46px; bottom: 0; overflow: hidden; scroll-behavior: smooth; }

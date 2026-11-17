@@ -1,0 +1,141 @@
+/* App screens, rebuilt at the phone's own size (390 px wide) from the app's code and
+   screenshots, then scaled to fit wherever they're shown. Sample data only. */
+.screen-slot { position: relative; width: 100%; aspect-ratio: 390 / 845; overflow: hidden; border-radius: inherit; background: #1A1311; }
+.as { position: absolute; left: 0; top: 0; width: 390px; height: 845px; transform-origin: 0 0; overflow: hidden;
+  background: #1A1311; color: #F5EEE4; font-family: "Inter", system-ui, sans-serif; font-size: 15px; line-height: 1.35;
+  -webkit-font-smoothing: antialiased; text-align: left; display: flex; flex-direction: column; }
+.as.deep { background: #120D0B; }
+.as * { box-sizing: border-box; }
+.as svg { display: block; flex: none; }
+.as .serif { font-family: "Fraunces", Georgia, serif; }
+
+/* Status bar */
+.as .sb { height: 46px; flex: none; display: flex; align-items: center; justify-content: space-between; padding: 6px 30px 0 34px; font-weight: 600; font-size: 15px; }
+.as .sb .ic { display: flex; gap: 6px; align-items: center; }
+
+/* Tab bar */
+.as .tabs { margin-top: auto; flex: none; height: 76px; border-top: 1px solid #33261F; display: flex; justify-content: space-around; align-items: flex-start; padding-top: 12px; }
+.as .tabs .t { display: flex; flex-direction: column; align-items: center; gap: 6px; width: 80px; }
+.as .tabs .t i { width: 5px; height: 5px; border-radius: 1px; }
+.as .tabs .t.on i { background: #F2A541; }
+.as .home-ind { position: absolute; left: 50%; bottom: 8px; width: 104px; height: 4px; border-radius: 2px; background: #F5EEE4; translate: -50% 0; opacity: 0.9; }
+
+/* Common bits */
+.as .av { border-radius: 50%; display: grid; place-items: center; font-family: "Fraunces", Georgia, serif; font-weight: 600; color: #1A1311; flex: none; }
+.as .btn { border-radius: 999px; background: #F2A541; color: #1A1408; font-weight: 600; font-size: 17px; text-align: center; height: 56px; display: grid; place-items: center; }
+.as .btn.out { background: transparent; color: #F5EEE4; border: 1px solid #3A2B23; height: 46px; font-size: 15px; }
+.as .lbl { font-weight: 600; font-size: 12.5px; letter-spacing: 1.4px; text-transform: uppercase; color: #B9A99A; }
+.as .bar { height: 10px; border-radius: 99px; background: #6E4E33; overflow: hidden; }
+.as .bar b { display: block; height: 100%; border-radius: 99px; background: #F2A541; }
+.as .fire { position: relative; aspect-ratio: 1; }
+.as .fire img { position: absolute; inset: 0; width: 100%; height: 100%; }
+.as .fire .gl { position: absolute; left: 50%; top: 60%; width: 140%; aspect-ratio: 1; translate: -50% -50%; border-radius: 50%;
+  background: radial-gradient(circle, rgba(242,165,65,0.30) 0%, rgba(232,132,60,0.10) 35%, rgba(26,19,17,0) 64%); }
+
+/* Home */
+.as .home-head { display: flex; align-items: center; justify-content: space-between; padding: 22px 20px 0; }
+.as .greet { font-family: "Fraunces", Georgia, serif; font-size: 26px; letter-spacing: -0.3px; }
+.as .home-mid { flex: 1; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 4px; padding-bottom: 30px; }
+.as .big-t { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 34px; letter-spacing: -0.5px; }
+.as .month { font-family: "Fraunces", Georgia, serif; font-style: italic; font-size: 18px; color: #D9CABB; margin-bottom: 8px; }
+.as .pline { display: flex; align-items: center; gap: 8px; font-size: 15px; color: #D9CABB; }
+.as .pline i { width: 8px; height: 8px; border-radius: 4px; background: #F2A541; }
+.as .sharem { display: flex; align-items: center; gap: 7px; color: #B9A99A; font-weight: 500; font-size: 14px; margin-top: 14px; }
+.as .startbar { padding: 0 20px 14px; }
+
+/* People */
+.as .ph-head { display: flex; align-items: center; justify-content: space-between; padding: 22px 20px 14px; }
+.as .ph-head h1 { margin: 0; font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 30px; }
+.as .ph-head .btns { display: flex; gap: 10px; }
+.as .rb { width: 44px; height: 44px; border-radius: 22px; display: grid; place-items: center; }
+.as .rb.q { border: 1px solid #3A2B23; background: #1E1613; }
+.as .rb.i { background: #F2A541; }
+.as .prow { margin: 0 20px 12px; background: #261B17; border-radius: 20px; padding: 16px 14px; display: flex; gap: 14px; align-items: center; }
+.as .prow .tx { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 6px; }
+.as .prow .top { display: flex; justify-content: space-between; align-items: baseline; gap: 8px; }
+.as .prow .nm { font-weight: 600; font-size: 17px; }
+.as .prow .pt { color: #F2A541; font-weight: 600; font-size: 16px; font-variant-numeric: tabular-nums; }
+.as .prow .sub { color: #B9A99A; font-size: 14px; }
+.as .prow .bar { height: 5px; background: #3A2B23; }
+
+/* Together */
+.as .tg-head { display: flex; align-items: center; justify-content: space-between; padding: 20px 20px 12px; }
+.as .tg-head h1 { margin: 0; font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 32px; }
+.as .tg-head .ic { display: flex; gap: 22px; }
+.as .chips { display: flex; gap: 8px; padding: 0 20px 18px; overflow: hidden; }
+.as .chip { display: flex; align-items: center; gap: 7px; height: 36px; padding: 0 14px 0 4px; border-radius: 18px; background: #261B17; font-size: 15px; color: #D9CABB; white-space: nowrap; }
+.as .mhead { display: flex; justify-content: space-between; align-items: baseline; padding: 0 20px 6px; }
+.as .mhead b { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 21px; }
+.as .mhead span { color: #B9A99A; font-size: 13.5px; }
+.as .ev { display: flex; gap: 12px; padding: 12px 20px; align-items: flex-start; }
+.as .ev .fi { width: 40px; height: 40px; margin-top: 8px; flex: none; }
+.as .ev .fi img { width: 100%; height: 100%; }
+.as .ev .bd { flex: 1; min-width: 0; display: flex; flex-direction: column; gap: 4px; }
+.as .ev .tt { font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 18px; }
+.as .ev .meta { display: flex; align-items: center; gap: 7px; color: #B9A99A; font-size: 13.5px; }
+.as .ev .stack { display: flex; }
+.as .ev .stack .av { border: 2px solid #1A1311; }
+.as .ev .stack .av + .av { margin-left: -7px; }
+.as .ev .q { font-family: "Fraunces", Georgia, serif; font-style: italic; font-size: 16px; color: #F5EEE4; line-height: 1.35; }
+.as .ev .th { width: 56px; height: 56px; border-radius: 10px; overflow: hidden; flex: none; }
+.as .ev .th svg, .as .ev .th img { width: 100%; height: 100%; object-fit: cover; }
+
+/* Live session */
+.as .ls-head { text-align: center; padding-top: 34px; display: flex; flex-direction: column; gap: 6px; }
+.as .ls-head .oc { font-weight: 600; font-size: 13px; letter-spacing: 1.5px; color: #B9A99A; }
+.as .ls-head .lk { font-size: 13px; color: #E8D2B0; }
+.as .ls-fire { width: 230px; margin: 26px auto 0; }
+.as .tm { text-align: center; margin-top: 6px; }
+.as .tm b { display: block; font-weight: 600; font-size: 52px; letter-spacing: -1.5px; line-height: 1.1; font-variant-numeric: tabular-nums; }
+.as .tm span { font-size: 15px; color: #D9CABB; }
+.as .mem { display: flex; justify-content: center; gap: 14px; margin-top: 18px; }
+.as .mem .m { width: 64px; display: flex; flex-direction: column; align-items: center; gap: 4px; }
+.as .mem .av { width: 48px; height: 48px; border: 3px solid; font-size: 17px; }
+.as .mem .n { font-size: 12px; color: #D9CABB; }
+.as .mem .st { font-weight: 600; font-size: 11px; text-align: center; line-height: 1.25; }
+.as .prompt { margin: 22px 20px 0; border: 1.5px dashed #F2A541; border-radius: 20px; padding: 16px; display: flex; gap: 14px; align-items: center; }
+.as .prompt b { display: block; font-weight: 600; font-size: 16px; margin-bottom: 4px; }
+.as .prompt span { font-size: 13.5px; color: #D9CABB; line-height: 1.4; }
+.as .ls-foot { margin-top: auto; padding: 0 0 30px; display: flex; flex-direction: column; align-items: center; gap: 12px; }
+.as .ls-foot .btn.out { padding: 0 26px; display: flex; gap: 10px; align-items: center; }
+
+/* Summary */
+.as .sm-head { display: flex; align-items: center; gap: 14px; padding: 18px 20px 14px 14px; }
+.as .sm-head .tt { flex: 1; min-width: 0; }
+.as .sm-head .tt b { display: block; font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 22px; }
+.as .sm-head .tt span { font-size: 13px; color: #B9A99A; }
+.as .sm-head .sh { width: 44px; height: 44px; border-radius: 22px; background: #261B17; display: grid; place-items: center; }
+.as .sm-card { margin: 4px 20px 0; background: #261B17; border-radius: 24px; padding: 18px 22px 22px; display: flex; flex-direction: column; align-items: center; }
+.as .sm-card .fire { width: 160px; margin-top: -6px; }
+.as .sm-card .num { font-weight: 600; font-size: 46px; color: #F2A541; line-height: 1; font-variant-numeric: tabular-nums; margin-top: -4px; }
+.as .sm-card .cap { font-size: 15px; color: #D9CABB; margin: 10px 0 16px; }
+.as .sm-card .bar { width: 100%; }
+.as .sm-card .leg { width: 100%; display: flex; justify-content: space-between; font-size: 14px; margin-top: 10px; }
+.as .sm-card .leg .p { color: #F2A541; }
+.as .sec { padding: 22px 20px 0; display: flex; flex-direction: column; gap: 12px; }
+.as .who { display: flex; gap: 14px; align-items: center; }
+.as .who .tx { flex: 1; display: flex; flex-direction: column; gap: 9px; }
+.as .who .top { display: flex; justify-content: space-between; font-size: 15px; }
+.as .who .top em { font-style: normal; color: #D9CABB; font-size: 14px; }
+.as .who .top em b { color: #F2A541; font-weight: 600; }
+.as .who .bar { height: 7px; }
+.as .tiles { display: flex; gap: 10px; }
+.as .tile { flex: 1; height: 96px; border: 1.5px dashed #6E5D50; border-radius: 18px; display: flex; flex-direction: column; align-items: center; justify-content: center; gap: 8px; font-size: 14px; color: #D9CABB; }
+.as .hint { font-size: 13px; color: #B9A99A; }
+.as .snote { background: #261B17; border-radius: 16px; padding: 14px 16px; }
+.as .snote .q { font-family: "Fraunces", Georgia, serif; font-style: italic; font-size: 17px; line-height: 1.4; }
+.as .snote .by { font-size: 13px; color: #B9A99A; margin-top: 6px; }
+.as .sphoto { width: 100%; aspect-ratio: 4 / 3; border-radius: 14px; overflow: hidden; }
+.as .sphoto svg { width: 100%; height: 100%; }
+
+/* Share card */
+.as .sc { margin: 26px 18px 0; flex: 1; max-height: 640px; border-radius: 4px; background: radial-gradient(120% 70% at 50% 28%, #3a2418 0%, #22170f 55%, #1a120e 100%);
+  display: flex; flex-direction: column; align-items: center; padding: 42px 28px 22px; text-align: center; }
+.as .sc .k { font-weight: 600; font-size: 13px; letter-spacing: 3px; color: #D9CABB; }
+.as .sc .h { font-weight: 600; font-size: 104px; color: #F2A541; line-height: 1; margin: 22px 0 18px; letter-spacing: -2px; }
+.as .sc .l { font-family: "Fraunces", Georgia, serif; font-size: 25px; line-height: 1.3; }
+.as .sc .st { margin-top: auto; width: 100%; display: flex; justify-content: space-between; font-size: 14px; color: #D9CABB; padding-bottom: 18px; border-bottom: 1px solid #3A2B23; }
+.as .sc .ft { width: 100%; display: flex; justify-content: space-between; align-items: center; padding-top: 16px; font-size: 13.5px; color: #D9CABB; }
+.as .sc .ft b { display: flex; align-items: center; gap: 10px; font-family: "Fraunces", Georgia, serif; font-weight: 600; font-size: 19px; color: #F5EEE4; }
+.as .sc-foot { padding: 18px 20px 26px; display: flex; flex-direction: column; gap: 14px; align-items: stretch; }
+.as .sc-foot .no { text-align: center; color: #B9A99A; font-size: 16px; }
