@@ -21,17 +21,7 @@ document.querySelectorAll('[data-stores]').forEach(el => {
 })();
 
 /* The photo being taken: lunch on a wooden table, seen from above */
-const PHOTO = '<svg viewBox="0 0 400 300" preserveAspectRatio="xMidYMid slice"><defs><radialGradient id="lt" cx="50%" cy="40%" r="75%"><stop offset="0" stop-color="#FFE1A1" stop-opacity=".35"/><stop offset="1" stop-color="#120D0B" stop-opacity=".55"/></radialGradient></defs>' +
-  '<rect width="400" height="300" fill="#7D5440"/>' +
-  [30, 75, 120, 165, 210, 255].map(y => '<rect x="0" y="' + y + '" width="400" height="2" fill="#6B4632" opacity=".7"/>').join('') +
-  '<circle cx="150" cy="150" r="70" fill="#F5EEE4"/><circle cx="150" cy="150" r="54" fill="#E8D2B0"/>' +
-  '<path d="M112 150 q38 -40 76 0 q-38 30 -76 0z" fill="#C8742A"/><circle cx="135" cy="140" r="7" fill="#6E8B3D"/><circle cx="160" cy="160" r="6" fill="#6E8B3D"/><circle cx="168" cy="138" r="5" fill="#B5432B"/>' +
-  '<circle cx="290" cy="95" r="42" fill="#F5EEE4"/><circle cx="290" cy="95" r="30" fill="#8C3B23"/><circle cx="282" cy="88" r="5" fill="#E8D2B0" opacity=".7"/>' +
-  '<rect x="270" y="190" width="70" height="44" rx="8" fill="#E8D2B0"/><rect x="278" y="198" width="54" height="28" rx="5" fill="#C8742A" opacity=".8"/>' +
-  '<circle cx="62" cy="62" r="20" fill="#F5EEE4"/><circle cx="62" cy="62" r="13" fill="#6B4632"/><path d="M80 58 q12 4 0 10" stroke="#F5EEE4" stroke-width="5" fill="none"/>' +
-  '<circle cx="66" cy="238" r="20" fill="#F5EEE4"/><circle cx="66" cy="238" r="13" fill="#6B4632"/>' +
-  '<rect x="214" y="40" width="10" height="70" rx="5" fill="#B9A99A" transform="rotate(20 219 75)"/>' +
-  '<rect width="400" height="300" fill="url(#lt)"/></svg>';
+const PHOTO = '<img src="/img/moments/chili.webp" alt="" width="960" height="720" decoding="async">';
 document.querySelectorAll('[data-photo]').forEach(el => el.innerHTML = PHOTO);
 
 /* ---- The gathering: one film in three chapters, one per section ----
@@ -48,7 +38,7 @@ const PEOPLE = [
 const people = PEOPLE.map(([name, ini, c], k) => {
   const el = document.createElement('div'); el.className = 'person'; el.style.setProperty('--c', c);
   el.style.setProperty('--fd', (5 + (k * 7) % 4) + 's'); el.style.setProperty('--fdel', (-(k * 1.3) % 5) + 's');
-  el.innerHTML = '<div class="in">' + ini + '</div><div class="nm">' + name + '</div>';
+  el.innerHTML = '<div class="in"><img src="/img/people/' + name.toLowerCase() + '.webp" alt="" width="192" height="192" decoding="async"></div><div class="nm">' + name + '</div>';
   el.style.opacity = 0;
   const ph = document.createElement('div'); ph.className = 'ph'; ph.style.opacity = 0;
   gather.appendChild(el); gather.appendChild(ph);
