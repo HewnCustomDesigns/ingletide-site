@@ -34,7 +34,9 @@
     <svg width="17" height="12" viewBox="0 0 17 12"><path d="M8.5 11.5l2.3-2.6a3.3 3.3 0 0 0-4.6 0z M3.7 6.6a6.8 6.8 0 0 1 9.6 0l-1.3 1.4a5 5 0 0 0-7 0z M1 3.8a10.6 10.6 0 0 1 15 0l-1.3 1.4a8.7 8.7 0 0 0-12.4 0z" fill="#F5EEE4"/></svg>
     <svg width="27" height="13" viewBox="0 0 27 13"><rect x=".5" y=".5" width="23" height="12" rx="3.5" fill="none" stroke="#F5EEE4" opacity=".5"/><rect x="2" y="2" width="16" height="9" rx="2" fill="#F5EEE4"/><rect x="24.5" y="4" width="2" height="5" rx="1" fill="#F5EEE4" opacity=".5"/></svg></span></div>`;
   const tabs = on => `<div class="tabs">${['home', 'people', 'moments'].map(t => `<div class="t ${t === on ? 'on' : ''}">${I[t](t === on ? C.present : C.muted)}<i></i></div>`).join('')}</div><div class="home-ind"></div>`;
-  const av = (l, size, extra = '') => `<span class="av" style="width:${size}px;height:${size}px;font-size:${Math.round(size * 0.42)}px;background:${AV[l] || '#F2C38B'};${extra}">${l}</span>`;
+  // The same faces as the gathering bubbles; "You" (Y) keeps its initial
+  const FACE = { M: 'maya', J: 'jordan', S: 'sam', A: 'alex', D: 'dad', N: 'nana' };
+  const av = (l, size, extra = '') => `<span class="av" style="width:${size}px;height:${size}px;font-size:${Math.round(size * 0.42)}px;background:${AV[l] || '#F2C38B'};${extra}">${FACE[l] ? `<img src="/img/people/${FACE[l]}.webp" alt="" decoding="async">` : l}</span>`;
   const fire = (stage, cls = '') => {
     const p = stage === 3 ? '/img/fire/' : '/img/fire/s' + stage + '-';
     return `<div class="fire ${cls}"><div class="gl"></div><img src="${p}logs.png" alt=""><img src="${p}back.png" alt=""><img src="${p}front.png" alt=""><img src="${p}core.png" alt=""></div>`;
