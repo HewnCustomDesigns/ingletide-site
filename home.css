@@ -79,14 +79,14 @@ a { color: var(--present); }
 .card p { color: var(--soft); margin: 0; font-size: 18px; max-width: 36ch; }
 
 /* Warm light in the middle of the group */
-.hearthglow { position: absolute; left: 50%; top: 52%; width: 70%; transition: left 1000ms var(--spring), top 1000ms var(--spring), width 1000ms var(--spring); aspect-ratio: 1; translate: -50% -50%; border-radius: 50%;
+.hearthglow { position: absolute; left: 50%; top: 52%; width: 70%; transition: left 833ms var(--spring), top 833ms var(--spring), width 833ms var(--spring); aspect-ratio: 1; translate: -50% -50%; border-radius: 50%;
   background: radial-gradient(circle, rgba(242,165,65,0.30) 0%, rgba(232,132,60,0.10) 35%, rgba(26,19,17,0) 65%); animation: breathe 6s ease-in-out infinite; }
 @keyframes breathe { 0%,100% { scale: 1; } 50% { scale: 1.06; } }
 
 /* People */
 .person { position: absolute; translate: -50% -50%; aspect-ratio: 1;
   container-type: inline-size;
-  transition: left 1000ms var(--spring), top 1000ms var(--spring), width 900ms var(--spring), opacity 500ms var(--ease-out), scale 700ms var(--spring); }
+  transition: left 833ms var(--spring), top 833ms var(--spring), width 750ms var(--spring), opacity 417ms var(--ease-out), scale 583ms var(--spring); }
 .person .in { position: absolute; inset: 0; border-radius: 50%; display: grid; place-items: center; font-family: var(--serif); font-size: 42cqi;
   background: var(--card); color: var(--muted); border: 2px solid var(--border);
   animation: float var(--fd, 6s) ease-in-out var(--fdel, 0s) infinite;
@@ -98,19 +98,19 @@ a { color: var(--present); }
 .tag { position: absolute; translate: -50% 0; font-size: 2.5cqw; white-space: nowrap; padding: 0.5cqw 1.8cqw; border-radius: 99px; background: var(--deep); color: var(--together); border: 1px solid var(--border); transition: opacity 300ms var(--ease-out); }
 .ph { position: absolute; width: 4.2%; aspect-ratio: 9 / 16; translate: -50% -50%; border-radius: 0.9cqw; border: 0.35cqw solid #4a3a30; background: var(--together); z-index: 2;
   box-shadow: 0 0 3cqw rgba(232,210,176,0.55);
-  transition: left 800ms var(--ease-out), top 800ms var(--ease-out), rotate 800ms var(--ease-out), opacity 400ms var(--ease-out), background-color 400ms var(--ease-out), box-shadow 400ms var(--ease-out); }
+  transition: left 667ms var(--ease-out), top 667ms var(--ease-out), rotate 667ms var(--ease-out), opacity 333ms var(--ease-out), background-color 333ms var(--ease-out), box-shadow 333ms var(--ease-out); }
 .ph.ring { animation: ring 0.5s ease-in-out 3; }
 @keyframes ring { 0%,100% { translate: -50% -50%; } 25% { translate: -62% -50%; } 75% { translate: -38% -50%; } }
 .tbl { position: absolute; translate: -50% -50%; background: #2E211B; border: 0.4cqw solid var(--track); opacity: 0; box-shadow: inset 0 0 6cqw rgba(0,0,0,0.35), 0 0 10cqw rgba(242,165,65,0.10);
-  transition: left 1000ms var(--spring), top 1000ms var(--spring), width 1000ms var(--spring), height 1000ms var(--spring), border-radius 1000ms var(--ease-out), opacity 500ms var(--ease-out); }
+  transition: left 833ms var(--spring), top 833ms var(--spring), width 833ms var(--spring), height 833ms var(--spring), border-radius 833ms var(--ease-out), opacity 417ms var(--ease-out); }
 .tbl .board { position: absolute; inset: 22%; border-radius: 1cqw; background: conic-gradient(#C8742A 0 25%, #6E4E33 0 50%, #E8D2B0 0 75%, #8C3B23 0); opacity: 0; transition: opacity 500ms var(--ease-out); }
 .tbl.game .board { opacity: 0.55; }
 .gather { position: absolute; inset: 0; transition: opacity 500ms var(--ease-out); }
 .gather.fadeout { opacity: 0 !important; }
 .ph.dark { background: #0b0807; box-shadow: none; }
 .caption { position: absolute; left: 50%; translate: -50% 0; font-size: 3cqw; color: var(--soft); font-style: italic; font-family: var(--serif); white-space: nowrap; transition: opacity 300ms var(--ease-out); }
-.occasion { position: absolute; left: 50%; top: 1%; z-index: 3; transition: left 1000ms var(--spring), top 1000ms var(--spring); translate: -50% 0; text-align: center; white-space: nowrap; }
-.occasion b { display: block; font-family: var(--serif); font-weight: 400; font-style: italic; font-size: 5.6cqw; color: var(--present); line-height: 1.2; transition: opacity 260ms var(--ease-out), translate 420ms var(--ease-out); }
+.occasion { position: absolute; left: 50%; top: 1%; z-index: 3; transition: left 833ms var(--spring), top 833ms var(--spring); translate: -50% 0; text-align: center; white-space: nowrap; }
+.occasion b { display: block; font-family: var(--serif); font-weight: 400; font-style: italic; font-size: 5.6cqw; color: var(--present); line-height: 1.2; transition: opacity 217ms var(--ease-out), translate 350ms var(--ease-out); }
 .occasion small { display: block; font-size: 2.6cqw; color: var(--muted); font-variant-numeric: tabular-nums; }
 
 /* A season of evenings */
@@ -154,10 +154,10 @@ a { color: var(--present); }
 .dialog .dlg span.c { color: var(--muted); }
 .vf { background: #000; }
 .vf .view { position: absolute; left: 0; right: 0; top: 12%; height: 66%; overflow: hidden; }
-.vf .view svg { transition: scale 2.4s var(--ease-out); }
+.vf .view svg { transition: scale 2s var(--ease-out); }
 .vf.on .view svg { scale: 1.08; }
 .vf .shutter { position: absolute; left: 50%; bottom: 7%; width: 17cqw; aspect-ratio: 1; translate: -50% 0; border-radius: 50%; border: 1.2cqw solid #fff; background: rgba(255,255,255,0.9); background-clip: content-box; padding: 1cqw; }
-.flash { background: #fff; transition: opacity 180ms linear; }
+.flash { background: #fff; transition: opacity 150ms linear; }
 .pv { padding: 10cqw 6cqw; display: flex; flex-direction: column; gap: 5cqw; background: var(--bg); }
 .pv h4 { margin: 0; font-family: var(--serif); font-weight: 400; font-size: 7cqw; }
 .pv .ph2 { border-radius: 4cqw; overflow: hidden; aspect-ratio: 4 / 3; }

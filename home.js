@@ -145,7 +145,8 @@ function settle(i) {
 }
 
 let gTimers = [], chapter = -1;
-function gAt(ms_, fn) { gTimers.push(setTimeout(fn, ms_)); }
+const G_SPEED = 1.2;  // the gathering plays 20% faster than its written timings
+function gAt(ms_, fn) { gTimers.push(setTimeout(fn, ms_ / G_SPEED)); }
 function clearTimers() { gTimers.forEach(clearTimeout); gTimers = []; }
 function gReset() {
   clearTimers(); step = 0; tag.style.opacity = 0; tbl.style.opacity = 0;
@@ -242,8 +243,8 @@ function scrollMoment(smooth) {
 
 const ms = $('ms'), finger = $('finger');
 const NOTE = 'Dad finally taught me his chili. Still won’t tell me the secret ingredient.';
-let timers = [], mode = null;
-function at(ms_, fn) { timers.push(setTimeout(fn, ms_)); }
+let timers = [], mode = null, mSpeed = 1;  // the photo plays 20% faster; the note at written speed
+function at(ms_, fn) { timers.push(setTimeout(fn, ms_ / mSpeed)); }
 function layer(id, on) { $(id).classList.toggle('on', on); }
 function tapAt(id, when, after) {
   at(when, () => {
@@ -274,7 +275,7 @@ function resetMoment(photo) {
   $('typed').innerHTML = '<span class="ph3">A few words to remember it by</span>';
 }
 function playPhoto() {
-  resetMoment(false); mode = 'photo';
+  resetMoment(false); mode = 'photo'; mSpeed = 1.2;
   tapAt('t-photo', 700, () => layer('l-ask', true));
   tapAt('o-take', 1900, () => { layer('l-ask', false); layer('l-cam', true); });
   tapAt('o-shutter', 3700, () => layer('l-flash', true));
@@ -283,11 +284,11 @@ function playPhoto() {
   at(9800, () => { if (mode === 'photo') playPhoto(); });
 }
 function playNote() {
-  resetMoment(true); scrollMoment(false); mode = 'note';
+  resetMoment(true); scrollMoment(false); mode = 'note'; mSpeed = 1;
   tapAt('t-note', 700, () => { layer('l-sheet', true); $('typed').innerHTML = '<span class="caret"></span>'; });
   const start = 1600;
-  for (let i = 1; i <= NOTE.length; i++) at(start + i * 45, () => { $('typed').innerHTML = NOTE.slice(0, i) + '<span class="caret"></span>'; });
-  const done = start + NOTE.length * 45 + 500;
+  for (let i = 1; i <= NOTE.length; i++) at(start + i * 35, () => { $('typed').innerHTML = NOTE.slice(0, i) + '<span class="caret"></span>'; });
+  const done = start + NOTE.length * 35 + 500;
   tapAt('o-save', done, () => { layer('l-sheet', false); showNote(true); scrollMoment(true); });
   at(done + 4500, () => { if (mode === 'note') playNote(); });
 }
