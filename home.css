@@ -126,7 +126,6 @@ a { color: var(--present); }
   padding: 0.5cqw 1.8cqw; border-radius: 99px; background: rgba(18,13,11,0.82); border: 1px solid var(--border);
   font-size: 3.1cqw; color: var(--present); transition: color 400ms var(--ease-out), border-color 400ms var(--ease-out); }
 .timer b { font-weight: 600; font-variant-numeric: tabular-nums; }
-.timer span { font-size: 0.78em; color: var(--muted); }
 .hub:not(.lit) .timer { color: var(--muted); }
 .hub.paused .timer { border-color: var(--track); }
 .hearthglow { transition: left 833ms var(--spring), top 833ms var(--spring), width 833ms var(--spring), opacity 700ms var(--ease-out); }

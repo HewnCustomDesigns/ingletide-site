@@ -203,9 +203,9 @@ const RATE = 60;
     return '<div class="fire st' + n + '">' + ['logs', 'back', 'front', 'core'].map(c => '<img class="' + c + '" src="' + p + c + '.png" alt="">').join('') + '</div>';
   };
   hub.innerHTML = '<div class="hfire"><div class="hglow"></div>' + stage(3) + stage(4) + stage(5) + '</div>' +
-    '<div class="timer"><b id="h-time">0:00:00</b><span id="h-word">present</span></div>';
+    '<div class="timer"><b id="h-time">0:00:00</b></div>';
 })();
-const hTime = $('h-time'), hWord = $('h-word');
+const hTime = $('h-time');
 let hState = '', hLast = 0, hStage = 0;
 function fmt(t) { t = Math.floor(t); const h = Math.floor(t / 3600), m = Math.floor(t / 60) % 60, s = t % 60; return h + ':' + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0'); }
 function hubTick(now) {
@@ -218,7 +218,6 @@ function hubTick(now) {
     if (state === 'lit' && hState === 'paused') { hub.classList.remove('flare'); void hub.offsetWidth; hub.classList.add('flare'); }
     hub.classList.toggle('lit', state === 'lit'); hub.classList.toggle('paused', state === 'paused');
     gather.classList.toggle('cold', state !== 'lit');
-    hWord.textContent = state === 'paused' ? 'paused' : state === 'lit' ? 'present' : 'starting';
     hState = state;
   }
   // the fire grows with the time: campfire, then hearth at an hour, then bonfire at two
