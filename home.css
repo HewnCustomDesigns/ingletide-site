@@ -14,7 +14,7 @@
   --text: #F5EEE4;
   --soft: #D9CABB;
   --muted: #B9A99A;
-  --serif: "Fraunces", Georgia, "Times New Roman", serif;
+  --serif: "Lora", Georgia, "Times New Roman", serif;
   --sans: "Inter", system-ui, -apple-system, "Segoe UI", Roboto, sans-serif;
   --ease-out: cubic-bezier(0.23, 1, 0.32, 1);
   --spring: cubic-bezier(0.34, 1.36, 0.64, 1);
@@ -38,7 +38,7 @@ a { color: var(--present); }
 
 /* Nav */
 .site-nav { display: flex; align-items: center; justify-content: space-between; padding-block: 20px; gap: 16px; }
-.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-family: var(--serif); font-size: 30px; font-variation-settings: "opsz" 40; }
+.brand { display: flex; align-items: center; gap: 10px; text-decoration: none; color: var(--text); font-family: var(--serif); font-size: 30px; }
 .brand img { width: 46px; height: 46px; border-radius: 12px; }
 .brand { gap: 12px; }
 .site-nav nav { display: flex; gap: 22px; font-size: 15px; }
@@ -54,7 +54,7 @@ a { color: var(--present); }
 
 /* Hero */
 .hero { display: grid; grid-template-columns: 1fr 0.78fr; gap: 56px; align-items: center; padding-block: 24px 80px; }
-.hero h1 { font-family: var(--serif); font-size: clamp(38px, 6vw, 72px); line-height: 1.04; letter-spacing: -0.015em; margin: 0 0 20px; font-weight: 300; font-variation-settings: "opsz" 144; }
+.hero h1 { font-family: var(--serif); font-size: clamp(38px, 6vw, 72px); line-height: 1.04; letter-spacing: -0.015em; margin: 0 0 20px; font-weight: 300; }
 .hero h1 b { font-weight: 500; }
 .hero .lede { font-size: 19px; color: var(--soft); max-width: 32ch; margin: 0 0 28px; }
 .hero .small { margin: 14px 0 0; font-size: 14px; color: var(--muted); }
@@ -75,7 +75,7 @@ a { color: var(--present); }
 .card { position: fixed; top: 50%; left: calc((100vw - 40px) * 0.58 + 20px); width: min(30rem, calc((100vw - 40px) * 0.42 - 16px)); z-index: 3;
   display: flex; flex-direction: column; gap: 14px; opacity: 0; visibility: hidden; pointer-events: none; }
 .card .kicker { font-size: 13px; letter-spacing: 0.08em; text-transform: uppercase; color: var(--present); margin: 0; }
-.card h2 { font-family: var(--serif); font-size: clamp(30px, 3.8vw, 48px); line-height: 1.08; margin: 0; font-variation-settings: "opsz" 144; }
+.card h2 { font-family: var(--serif); font-size: clamp(30px, 3.8vw, 48px); line-height: 1.08; margin: 0; }
 .card p { color: var(--soft); margin: 0; font-size: 18px; max-width: 36ch; }
 
 /* Warm light in the middle of the group */
