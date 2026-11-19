@@ -29,7 +29,7 @@ document.querySelectorAll('[data-photo]').forEach(el => el.innerHTML = PHOTO);
    Section 2 plays on from there: a double date, then stops.
    Section 3 plays on: game night, then Sunday dinner, then stops.
    Scrolling back jumps to the end of that section's chapter. */
-const gather = $('gather'), tbl = $('tbl'), occ = $('occasion');
+const gather = $('gather'), hub = $('hub'), occ = $('occasion');
 const PEOPLE = [
   ['Maya', 'M', '#F2A541'], ['Jordan', 'J', '#E8843C'], ['Sam', 'S', '#FFE1A1'], ['Alex', 'A', '#E8D2B0'],
   ['Rosa', 'R', '#E8843C'], ['Lee', 'L', '#F2A541'], ['Dad', 'D', '#E8D2B0'], ['Nana', 'N', '#FFE1A1'],
@@ -46,32 +46,37 @@ const people = PEOPLE.map(([name, ini, c], k) => {
 });
 const tag = document.createElement('div'); tag.className = 'tag'; tag.textContent = 'Phone unlocked'; tag.style.opacity = 0; gather.appendChild(tag);
 
-// Each gathering has its own table in its own part of the scene, with the name above it
+// Each gathering sits round its own fire in its own part of the scene, with the name above it.
+// t is the middle of the group, where the fire and its timer sit (w = fire width).
 const STEPS = [
-  { name: 'Coffee for two', n: 2, size: 15, t: { x: 34, y: 44, w: 21, h: 21, r: '50%' }, label: [34, 18],
+  { name: 'Coffee for two', n: 2, size: 15, t: { x: 34, y: 44, w: 28 }, label: [34, 18],
     seats: [[13, 44], [55, 44]] },
-  { name: 'Double date', n: 4, size: 14, t: { x: 62, y: 54, w: 30, h: 19, r: '4cqw' }, label: [62, 15],
+  { name: 'Double date', n: 4, size: 14, t: { x: 62, y: 52.5, w: 21 }, label: [62, 15],
     seats: [[50, 33], [74, 33], [50, 75], [74, 75]] },
-  { name: 'Game night', n: 6, size: 13, t: { x: 44, y: 57, w: 30, h: 28, r: '3cqw' }, game: true, label: [44, 12],
+  { name: 'Game night', n: 6, size: 13, t: { x: 44, y: 57, w: 26 }, label: [44, 12],
     seats: [[32, 34], [56, 34], [18, 57], [70, 57], [32, 80], [56, 80]] },
-  { name: 'Sunday dinner', n: 10, size: 11.5, t: { x: 50, y: 60, w: 76, h: 16, r: '3cqw' }, label: [50, 17],
-    seats: [[20, 43], [35, 43], [50, 43], [65, 43], [80, 43], [20, 77], [35, 77], [50, 77], [65, 77], [80, 77]] }
+  { name: 'Sunday dinner', n: 10, size: 11.5, t: { x: 50, y: 59, w: 18 }, label: [50, 15],
+    seats: [[20, 40], [35, 40], [50, 40], [65, 40], [80, 40], [20, 80], [35, 80], [50, 80], [65, 80], [80, 80]] }
 ];
 // Where each person walks in from (and leaves to)
 const ENTRY = [[-14, 44], [114, 44], [50, 116], [86, 116], [-14, 30], [114, 70], [-14, 86], [114, 22], [40, -14], [70, 116]];
 
 let step = 0;
 function setTable(st) {
-  Object.assign(tbl.style, { left: st.t.x + '%', top: st.t.y + '%', width: st.t.w + '%', height: st.t.h + '%', borderRadius: st.t.r, opacity: 1 });
-  tbl.classList.toggle('game', !!st.game);
+  Object.assign(hub.style, { left: st.t.x + '%', top: st.t.y + '%', width: st.t.w + '%', opacity: 1 });
   occ.style.left = st.label[0] + '%'; occ.style.top = st.label[1] + '%';
-  // the warm light sits on the table and grows with it
-  const g = $('glow'); g.style.left = st.t.x + '%'; g.style.top = st.t.y + '%'; g.style.width = Math.max(56, st.t.w * 1.45) + '%';
+  // the warm light sits round the fire
+  const g = $('glow'); g.style.left = st.t.x + '%'; g.style.top = st.t.y + '%'; g.style.width = Math.max(56, st.t.w * 2.2) + '%';
 }
 function phoneSpot(k) {
   const st = STEPS[step], p = people[k];
   const [sx, sy] = p.seat;
-  if (p.down) return { x: lerp(sx, st.t.x, 0.74) + (k % 2 ? 1.2 : -1.2), y: lerp(sy, st.t.y, 0.7), r: 90 + (k % 3 - 1) * 6 };
+  if (p.down) {
+    // set down just in front of its owner, on the fire's side (past the name for people above it)
+    const dx = st.t.x - sx, dy = st.t.y - sy, r = 90 + (k % 3 - 1) * 6;
+    if (Math.abs(dy) > Math.abs(dx) * 0.5) return { x: sx + (k % 2 ? 1.5 : -1.5), y: sy + (dy > 0 ? st.size / 2 + 6 : -(st.size / 2 + 2.5)), r };
+    return { x: sx + Math.sign(dx) * (st.size / 2 + 4), y: sy, r };
+  }
   return { x: sx + (sx < st.t.x ? -9.5 : 9.5), y: sy + 1, r: 0 };
 }
 function placeAll() {
@@ -119,13 +124,13 @@ function label(st) {
     b.style.opacity = 1; b.style.translate = '0 0';
   });
 }
-function goStep(i) { step = i; setTable(STEPS[i]); label(STEPS[i]); placeAll(); }
+function goStep(i) { if (i !== step) hubTime = 0; step = i; setTable(STEPS[i]); label(STEPS[i]); placeAll(); }  // a new gathering starts a new session
 
 // The end of each chapter, as a state to jump to
 function settle(i) {
   const n = STEPS[i].n;
   people.forEach((p, k) => { if (k >= n) leave(k); });
-  goStep(i);
+  goStep(i); hubTime = SETTLED[i];
   tag.style.opacity = 0;
   people.forEach((p, k) => {
     if (k < n) { if (!p.shown) enter(k); p.down = true; p.ph.classList.add('dark'); p.el.classList.remove('call'); p.el.classList.add('on'); p.ph.classList.remove('ring'); }
@@ -135,11 +140,12 @@ function settle(i) {
 }
 
 let gTimers = [], chapter = -1;
+let hubTime = 0;  // this gathering's present time, in seconds
 const G_SPEED = 1.2;  // the gathering plays 20% faster than its written timings
 function gAt(ms_, fn) { gTimers.push(setTimeout(fn, ms_ / G_SPEED)); }
 function clearTimers() { gTimers.forEach(clearTimeout); gTimers = []; }
 function gReset() {
-  clearTimers(); step = 0; tag.style.opacity = 0; tbl.style.opacity = 0;
+  clearTimers(); step = 0; tag.style.opacity = 0; hub.style.opacity = 0; hubTime = 0;
   people.forEach((p, k) => { p.shown = false; p.down = false; p.el.style.opacity = 0; p.ph.style.opacity = 0; p.el.classList.remove('on', 'call'); p.ph.classList.remove('dark', 'ring'); });
   gather.classList.remove('fadeout');
 }
@@ -184,6 +190,45 @@ function setChapter(c) {
   if (c > prev) (c === 1 ? chapter2 : chapter3)();       // play forward from here
   else { clearTimers(); settle(1); }                     // scrolled back: the double date, already seated
 }
+
+/* ---- The fire and its timer, in the middle of the group ----
+   They run only while every phone in the gathering is locked and down. The moment someone
+   unlocks, the timer stops and the fire dies to embers; lock again and both pick back up.
+   Time runs fast here (a minute a second). */
+const SETTLED = [38 * 60 + 12, 52 * 60 + 40, 0, 1 * 3600 + 47 * 60 + 5];  // each chapter's end state
+const RATE = 60;
+(function () {
+  const stage = n => {
+    const p = n === 3 ? '/img/fire/' : '/img/fire/s' + n + '-';
+    return '<div class="fire st' + n + '">' + ['logs', 'back', 'front', 'core'].map(c => '<img class="' + c + '" src="' + p + c + '.png" alt="">').join('') + '</div>';
+  };
+  hub.innerHTML = '<div class="hfire"><div class="hglow"></div>' + stage(3) + stage(4) + stage(5) + '</div>' +
+    '<div class="timer"><b id="h-time">0:00:00</b><span id="h-word">present</span></div>';
+})();
+const hTime = $('h-time'), hWord = $('h-word');
+let hState = '', hLast = 0, hStage = 0;
+function fmt(t) { t = Math.floor(t); const h = Math.floor(t / 3600), m = Math.floor(t / 60) % 60, s = t % 60; return h + ':' + String(m).padStart(2, '0') + ':' + String(s).padStart(2, '0'); }
+function hubTick(now) {
+  const dt = hLast ? Math.min(0.1, (now - hLast) / 1000) : 0; hLast = now;
+  const here = people.filter(p => p.shown);
+  const state = !here.length ? 'cold' : here.some(p => p.el.classList.contains('call')) ? 'paused'
+    : here.every(p => p.down) ? 'lit' : 'cold';
+  if (state === 'lit' && chapter >= 0 && !reduce) hubTime += dt * RATE;
+  if (state !== hState) {
+    if (state === 'lit' && hState === 'paused') { hub.classList.remove('flare'); void hub.offsetWidth; hub.classList.add('flare'); }
+    hub.classList.toggle('lit', state === 'lit'); hub.classList.toggle('paused', state === 'paused');
+    gather.classList.toggle('cold', state !== 'lit');
+    hWord.textContent = state === 'paused' ? 'paused' : state === 'lit' ? 'present' : 'starting';
+    hState = state;
+  }
+  // the fire grows with the time: campfire, then hearth at an hour, then bonfire at two
+  const st = hubTime >= 7200 ? 5 : hubTime >= 3600 ? 4 : 3;
+  if (st !== hStage) { hub.dataset.stage = st; hStage = st; }
+  hub.style.setProperty('--grow', (0.75 + 0.25 * clamp(hubTime / 1800)).toFixed(3));
+  hTime.textContent = fmt(hubTime);
+  requestAnimationFrame(hubTick);
+}
+requestAnimationFrame(hubTick);
 
 /* ---- Season of evenings ---- */
 const heat = $('heat'); const cells = [];

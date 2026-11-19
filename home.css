@@ -105,10 +105,32 @@ a { color: var(--present); }
   transition: left 667ms var(--ease-out), top 667ms var(--ease-out), rotate 667ms var(--ease-out), opacity 333ms var(--ease-out), background-color 333ms var(--ease-out), box-shadow 333ms var(--ease-out); }
 .ph.ring { animation: ring 0.5s ease-in-out 3; }
 @keyframes ring { 0%,100% { translate: -50% -50%; } 25% { translate: -62% -50%; } 75% { translate: -38% -50%; } }
-.tbl { position: absolute; translate: -50% -50%; background: #2E211B; border: 0.4cqw solid var(--track); opacity: 0; box-shadow: inset 0 0 6cqw rgba(0,0,0,0.35), 0 0 10cqw rgba(242,165,65,0.10);
-  transition: left 833ms var(--spring), top 833ms var(--spring), width 833ms var(--spring), height 833ms var(--spring), border-radius 833ms var(--ease-out), opacity 417ms var(--ease-out); }
-.tbl .board { position: absolute; inset: 22%; border-radius: 1cqw; background: conic-gradient(#C8742A 0 25%, #6E4E33 0 50%, #E8D2B0 0 75%, #8C3B23 0); opacity: 0; transition: opacity 500ms var(--ease-out); }
-.tbl.game .board { opacity: 0.55; }
+/* The fire and its timer in the middle of the group: burning while every phone is down,
+   embers the moment someone unlocks, flaring back up when they lock again */
+.hub { position: absolute; translate: -50% -56%; aspect-ratio: 1; opacity: 0; z-index: 1; --grow: 0.75;
+  transition: left 833ms var(--spring), top 833ms var(--spring), width 833ms var(--spring), opacity 417ms var(--ease-out); }
+.hfire { position: absolute; inset: 0; transform-origin: 50% 78%; scale: var(--grow);
+  transition: scale 900ms var(--spring), filter 700ms var(--ease-out); }
+.hfire .fire { opacity: 0; transition: opacity 900ms var(--ease-out); }
+.hub[data-stage="3"] .st3, .hub[data-stage="4"] .st4, .hub[data-stage="5"] .st5 { opacity: 1; }
+.hfire .hglow { position: absolute; left: 50%; top: 66%; width: 190%; aspect-ratio: 1; translate: -50% -50%; border-radius: 50%;
+  background: radial-gradient(circle, rgba(255,225,161,0.38) 0%, rgba(242,165,65,0.16) 30%, rgba(26,19,17,0) 62%); transition: opacity 700ms var(--ease-out); }
+.hfire .back, .hfire .front, .hfire .core { transition: scale 600ms var(--ease-out), opacity 600ms var(--ease-out); }
+/* not burning: the flames sink to the logs and the light goes out */
+.hub:not(.lit) .hfire { scale: calc(var(--grow) * 0.85); filter: brightness(0.55) saturate(0.5); }
+.hub:not(.lit) .hglow { opacity: 0; }
+.hub:not(.lit) .back, .hub:not(.lit) .front, .hub:not(.lit) .core { scale: 1 0.2; opacity: 0.5; }
+.hub.flare .hfire { animation: flare 900ms var(--spring); }
+@keyframes flare { 0% { scale: calc(var(--grow) * 0.85); } 45% { scale: calc(var(--grow) * 1.18); } 100% { scale: var(--grow); } }
+.timer { position: absolute; left: 50%; top: 82%; translate: -50% 0; display: flex; align-items: baseline; gap: 0.8cqw; white-space: nowrap;
+  padding: 0.5cqw 1.8cqw; border-radius: 99px; background: rgba(18,13,11,0.82); border: 1px solid var(--border);
+  font-size: 3.1cqw; color: var(--present); transition: color 400ms var(--ease-out), border-color 400ms var(--ease-out); }
+.timer b { font-weight: 600; font-variant-numeric: tabular-nums; }
+.timer span { font-size: 0.78em; color: var(--muted); }
+.hub:not(.lit) .timer { color: var(--muted); }
+.hub.paused .timer { border-color: var(--track); }
+.hearthglow { transition: left 833ms var(--spring), top 833ms var(--spring), width 833ms var(--spring), opacity 700ms var(--ease-out); }
+.gather.cold .hearthglow { opacity: 0.3; }
 .gather { position: absolute; inset: 0; transition: opacity 500ms var(--ease-out); }
 .gather.fadeout { opacity: 0 !important; }
 .ph.dark { background: #0b0807; box-shadow: none; }
