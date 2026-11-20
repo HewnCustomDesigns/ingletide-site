@@ -45,18 +45,28 @@ a:focus-visible, .button:focus-visible {
 .site-header {
   display: flex;
   justify-content: space-between;
-  align-items: baseline;
-  padding-top: 1.75rem;
-  padding-bottom: 1.75rem;
+  align-items: center;
+  gap: 16px;
+  padding-top: 20px;
+  padding-bottom: 20px;
 }
+/* Logo and name: the same as the home page's .brand (home.css) */
 .wordmark {
+  display: flex;
+  align-items: center;
+  gap: 12px;
   font-family: var(--display);
-  font-size: 1.5rem;
+  font-size: 30px;
+  line-height: 1.2;
   color: var(--ash);
   text-decoration: none;
-  letter-spacing: 0.01em;
 }
+.wordmark img { width: 46px; height: 46px; border-radius: 12px; }
 .wordmark:hover { color: var(--ash); }
+@media (max-width: 420px) {
+  .wordmark { font-size: 26px; }
+  .wordmark img { width: 40px; height: 40px; }
+}
 .site-header nav a {
   color: var(--smoke);
   text-decoration: none;
