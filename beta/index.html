@@ -23,63 +23,12 @@
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="/styles.css?v=202611192200">
+  <link rel="stylesheet" href="/beta/beta.css?v=202611192300">
   <!--
-    Tester sign-up. The button joins the Google Group ingletide-testers; the
-    Play closed test (Alpha track) lists that group, so members can opt in once
-    Google approves the track. Styles for this page only are below, so the
-    shared styles.css (and its ?v= number) stay untouched.
+    Android tester sign-up. Step 1 joins the Google Group ingletide-testers;
+    the Play closed test (Alpha track) lists that group. The iPhone page is
+    /beta/iphone/ (TestFlight). Shared styles: /beta/beta.css.
   -->
-  <style>
-    .beta-hero { position: relative; padding-top: 2.5rem; padding-bottom: 4.5rem; overflow: hidden; }
-    .beta-hero .glow { bottom: -30rem; opacity: 0.7; }
-    .beta-hero-in { position: relative; max-width: 40rem; }
-    .kicker { color: var(--ember); font-size: 1.05rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.75rem; }
-    .beta-hero h1 { font-family: var(--display); font-weight: 400; font-size: clamp(2.5rem, 6.5vw, 4.25rem); line-height: 1.05; letter-spacing: -0.01em; margin: 0 0 1.25rem; text-wrap: balance; }
-    .beta-hero .lede { font-size: 1.25rem; max-width: 34rem; margin: 0 0 2rem; text-wrap: pretty; }
-    .cta { list-style: none; counter-reset: c; padding: 0; margin: 0; display: grid; gap: 1.5rem; max-width: 32rem; }
-    .cta li { counter-increment: c; display: grid; grid-template-columns: 2rem 1fr; gap: 0.6rem 0.75rem; align-items: center; }
-    .cta li::before { content: counter(c); font-family: var(--display); font-size: 1.9rem; line-height: 1; color: var(--ember); text-align: center; }
-    .cta .button { justify-self: start; }
-    .cta p { grid-column: 2; margin: 0; font-size: 0.95rem; color: var(--smoke); }
-    .cta .shot { grid-column: 2; justify-self: start; max-width: 100%; height: auto; background: #fff; border-radius: 10px; padding: 0.35rem 0.5rem; box-shadow: 0 0 0 1px var(--line); }
-
-    .fit { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
-    .fit li { background: var(--coal); border: 1px solid var(--line); border-radius: 14px; padding: 1.25rem 1.25rem 1.35rem; }
-    .fit b { display: block; font-family: var(--display); font-weight: 500; font-size: 1.2rem; margin-bottom: 0.3rem; }
-    .fit span { color: var(--smoke); font-size: 1rem; }
-
-    .steps { grid-template-columns: 1fr; }
-    @media (min-width: 40rem) { .steps { grid-template-columns: repeat(2, 1fr); } }
-    @media (min-width: 62rem) { .steps { grid-template-columns: repeat(4, 1fr); } }
-
-    .questions { list-style: none; counter-reset: q; padding: 0; margin: 0; display: grid; gap: 1.75rem; max-width: 40rem; }
-    .questions li { counter-increment: q; display: grid; grid-template-columns: 2.5rem 1fr; gap: 0 0.75rem; }
-    .questions li::before { content: counter(q); font-family: var(--display); font-size: 2rem; line-height: 1.1; color: var(--ember); }
-    .questions q { font-family: var(--display); font-size: 1.3rem; line-height: 1.35; quotes: "\201C" "\201D"; }
-    .questions p { grid-column: 2; margin: 0.4rem 0 0; color: var(--smoke); font-size: 1rem; }
-
-    .faq h3 { font-size: 1.1rem; margin: 1.75rem 0 0.35rem; }
-    .faq h3:first-child { margin-top: 0; }
-    .faq p { margin: 0; color: var(--smoke); }
-
-    .soon { display: flex; flex-wrap: wrap; gap: 1.25rem; margin-top: 1.75rem; }
-    .soon figure { margin: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 0.45rem; }
-    .soon img { height: 48px; width: auto; display: block; opacity: 0.45; filter: grayscale(1); }
-    .soon figcaption { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--smoke); }
-
-    .again { text-align: left; }
-    .again h2 { margin-bottom: 1rem; }
-    .again p { margin: 0 0 1.75rem; }
-    .pair { display: flex; flex-wrap: wrap; gap: 0.75rem; }
-
-    @media (max-width: 36rem) {
-      .beta-hero { padding-top: 1rem; }
-      .beta-hero .lede { font-size: 1.15rem; }
-      .questions li { grid-template-columns: 2rem 1fr; }
-      .questions q { font-size: 1.2rem; }
-      .soon img { height: 42px; }
-    }
-  </style>
 </head>
 <body>
   <header class="site-header wrap">
@@ -94,6 +43,7 @@
     <section class="beta-hero wrap">
       <div class="glow" aria-hidden="true"></div>
       <div class="beta-hero-in">
+        <nav class="platforms" aria-label="Choose your phone"><a href="/beta/" aria-current="page">Android</a><a href="/beta/iphone/">iPhone</a></nav>
         <p class="kicker">Early testers wanted</p>
         <h1>Help shape Ingletide before it launches.</h1>
         <p class="lede">We're looking for families, couples and friend groups on Android who spend time together regularly. Try Ingletide for two weeks, then tell us how it went.</p>
@@ -120,7 +70,7 @@
       <h2>Who it's for</h2>
       <ul class="fit">
         <li><b>People who meet in person</b><span>A household, a couple, roommates, a weekly game night or book club. Anyone you see often.</span></li>
-        <li><b>Everyone on Android</b><span>Each person in your group needs an Android phone for now. iPhone testing comes later.</span></li>
+        <li><b>Android or iPhone</b><span>This page is for Android phones. Your group can mix both: people with an iPhone follow the <a href="/beta/iphone/">iPhone steps</a>.</span></li>
         <li><b>Everyone on Gmail</b><span>Each person needs their own Gmail or other Google account. It's how you join the test and sign in to the app.</span></li>
       </ul>
     </section>
@@ -139,7 +89,7 @@
       <h2>The three questions</h2>
       <ol class="questions">
         <li><q>Did the time Ingletide recorded match what really happened?</q><p>If it was ever off, roughly when, and what was going on.</p></li>
-        <li><q>What got in the way of starting a session, or keeping it going?</q><p>Setup, forgetting, battery, a friend without Android: anything counts.</p></li>
+        <li><q>What got in the way of starting a session, or keeping it going?</q><p>Setup, forgetting, battery, a friend who couldn't install it: anything counts.</p></li>
         <li><q>Would you keep using it after the test? Why or why not?</q><p>The why matters most. There are no wrong answers.</p></li>
       </ol>
     </section>
