@@ -1,0 +1,164 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <title>Become a tester | Ingletide</title>
+  <meta name="description" content="Help shape Ingletide before it launches. We're looking for families, couples and friend groups on Android who spend time together regularly.">
+  <meta property="og:title" content="Help shape Ingletide">
+  <meta property="og:description" content="Looking for families, couples and friend groups on Android to try Ingletide for two weeks before it launches.">
+  <meta property="og:url" content="https://ingletide.com/beta/">
+  <meta property="og:type" content="website">
+  <meta property="og:image" content="https://ingletide.com/img/og-image.png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="The Ingletide logo: people gathered round a small fire">
+  <meta name="twitter:card" content="summary_large_image">
+  <link rel="canonical" href="https://ingletide.com/beta/">
+  <meta name="theme-color" content="#1A1311">
+  <link rel="icon" href="/favicon.ico" sizes="any">
+  <link rel="icon" href="/img/favicon-32.png" type="image/png">
+  <link rel="apple-touch-icon" href="/img/apple-touch-icon.png">
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Lora:ital,wght@0,400..700;1,400..700&family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="/styles.css?v=202611181900">
+  <!--
+    Tester sign-up. The button joins the Google Group ingletide-testers; the
+    Play closed test (Alpha track) lists that group, so members can opt in once
+    Google approves the track. Styles for this page only are below, so the
+    shared styles.css (and its ?v= number) stay untouched.
+  -->
+  <style>
+    .beta-hero { position: relative; padding-top: 2.5rem; padding-bottom: 4.5rem; overflow: hidden; }
+    .beta-hero .glow { bottom: -30rem; opacity: 0.7; }
+    .beta-hero-in { position: relative; max-width: 40rem; }
+    .beta-hero img.mark { width: 4.5rem; height: 4.5rem; border-radius: 22%; display: block; margin-bottom: 1.5rem; }
+    .kicker { color: var(--ember); font-size: 0.85rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.75rem; }
+    .beta-hero h1 { font-family: var(--display); font-weight: 400; font-size: clamp(2.5rem, 6.5vw, 4.25rem); line-height: 1.05; letter-spacing: -0.01em; margin: 0 0 1.25rem; text-wrap: balance; }
+    .beta-hero .lede { font-size: 1.25rem; max-width: 34rem; margin: 0 0 2rem; text-wrap: pretty; }
+    .join-note { margin: 0.9rem 0 0; font-size: 0.95rem; color: var(--smoke); max-width: 30rem; }
+
+    .fit { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
+    .fit li { background: var(--coal); border: 1px solid var(--line); border-radius: 14px; padding: 1.25rem 1.25rem 1.35rem; }
+    .fit b { display: block; font-family: var(--display); font-weight: 500; font-size: 1.2rem; margin-bottom: 0.3rem; }
+    .fit span { color: var(--smoke); font-size: 1rem; }
+
+    .steps { grid-template-columns: 1fr; }
+    @media (min-width: 40rem) { .steps { grid-template-columns: repeat(2, 1fr); } }
+    @media (min-width: 62rem) { .steps { grid-template-columns: repeat(4, 1fr); } }
+
+    .questions { list-style: none; counter-reset: q; padding: 0; margin: 0; display: grid; gap: 1.75rem; max-width: 40rem; }
+    .questions li { counter-increment: q; display: grid; grid-template-columns: 2.5rem 1fr; gap: 0 0.75rem; }
+    .questions li::before { content: counter(q); font-family: var(--display); font-size: 2rem; line-height: 1.1; color: var(--ember); }
+    .questions q { font-family: var(--display); font-size: 1.3rem; line-height: 1.35; quotes: "\201C" "\201D"; }
+    .questions p { grid-column: 2; margin: 0.4rem 0 0; color: var(--smoke); font-size: 1rem; }
+
+    .faq h3 { font-size: 1.1rem; margin: 1.75rem 0 0.35rem; }
+    .faq h3:first-child { margin-top: 0; }
+    .faq p { margin: 0; color: var(--smoke); }
+
+    .soon { display: flex; flex-wrap: wrap; gap: 1.25rem; margin-top: 1.75rem; }
+    .soon figure { margin: 0; display: flex; flex-direction: column; align-items: flex-start; gap: 0.45rem; }
+    .soon img { height: 48px; width: auto; display: block; opacity: 0.45; filter: grayscale(1); }
+    .soon figcaption { font-size: 0.8rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--smoke); }
+
+    .again { text-align: left; }
+    .again h2 { margin-bottom: 1rem; }
+    .again p { margin: 0 0 1.75rem; }
+
+    @media (max-width: 36rem) {
+      .beta-hero { padding-top: 1rem; }
+      .beta-hero .lede { font-size: 1.15rem; }
+      .questions li { grid-template-columns: 2rem 1fr; }
+      .questions q { font-size: 1.2rem; }
+      .soon img { height: 42px; }
+    }
+  </style>
+</head>
+<body>
+  <header class="site-header wrap">
+    <a class="wordmark" href="/">Ingletide</a>
+    <nav aria-label="Main">
+      <a href="/support.html">Support</a>
+      <a href="/privacy.html">Privacy</a>
+    </nav>
+  </header>
+
+  <main>
+    <section class="beta-hero wrap">
+      <div class="glow" aria-hidden="true"></div>
+      <div class="beta-hero-in">
+        <img class="mark" src="/img/icon-512.png" alt="">
+        <p class="kicker">Early testers wanted</p>
+        <h1>Help shape Ingletide before it launches.</h1>
+        <p class="lede">We're looking for families, couples and friend groups on Android who spend time together regularly. Try Ingletide for two weeks, then tell us how it went.</p>
+        <a class="button" href="https://groups.google.com/g/ingletide-testers">Join the tester group</a>
+        <p class="join-note">Sign in with the Google account your Android phone uses for the Play Store, then tap <strong>Join group</strong>.</p>
+      </div>
+    </section>
+
+    <section class="section wrap">
+      <h2>Who it's for</h2>
+      <ul class="fit">
+        <li><b>People who meet in person</b><span>A household, a couple, roommates, a weekly game night or book club. Anyone you see often.</span></li>
+        <li><b>Everyone on Android</b><span>Each person in your group needs an Android phone for now. iPhone testing comes later.</span></li>
+        <li><b>Ages 13 and up</b><span>Everyone signs in with their own Google account.</span></li>
+      </ul>
+    </section>
+
+    <section class="section wrap">
+      <h2>What you'll do</h2>
+      <ol class="steps">
+        <li><h3>Join the group</h3><p>Tap the button above. Invite the people you spend time with to join too.</p></li>
+        <li><h3>Install the app</h3><p>We'll send the group a Google Play link as soon as testing opens.</p></li>
+        <li><h3>Use it for two weeks</h3><p>When you're together, tap Start together time, lock your phones and set them aside. Please stay in the test for at least 14 days.</p></li>
+        <li><h3>Answer three questions</h3><p>A short form at the end. It takes about five minutes.</p></li>
+      </ol>
+    </section>
+
+    <section class="section wrap">
+      <h2>The three questions</h2>
+      <p>Here's what we'll ask, so you can notice things as you go.</p>
+      <ol class="questions">
+        <li><q>Did the time Ingletide recorded match what really happened?</q><p>If it was ever off, roughly when, and what was going on.</p></li>
+        <li><q>What got in the way of starting a session, or keeping it going?</q><p>Setup, forgetting, battery, a friend without Android: anything counts.</p></li>
+        <li><q>Would you keep using it after the test? Why or why not?</q><p>The why matters most. There are no wrong answers.</p></li>
+      </ol>
+    </section>
+
+    <section class="section wrap">
+      <h2>Good to know</h2>
+      <div class="faq">
+        <h3>What is Ingletide?</h3>
+        <p>It keeps a record of the time you spend with the people you love, with phones locked and set aside. Phones sense each other nearby over Bluetooth, and nobody has to be the phone police. <a href="/">See how it works</a>.</p>
+        <h3>What happens to my email address?</h3>
+        <p>It's used only to let you into the test and send you testing updates. You can leave the group any time from its page. See our <a href="/privacy.html">privacy policy</a> for how the app handles your data.</p>
+        <h3>Will it cost anything?</h3>
+        <p>No. Testing is free.</p>
+        <h3>Something not working?</h3>
+        <p>Email <a href="mailto:support@ingletide.com">support@ingletide.com</a>, or tap <strong>Send feedback</strong> in the app's Settings.</p>
+      </div>
+    </section>
+
+    <section class="section wrap again">
+      <h2>Coming soon to your app store</h2>
+      <p>Testers help us get there. Once Ingletide launches, you'll find it here.</p>
+      <a class="button" href="https://groups.google.com/g/ingletide-testers">Join the tester group</a>
+      <div class="soon">
+        <figure><img src="/img/badges/google-play.png" alt="Google Play" width="564" height="168"><figcaption>Coming soon</figcaption></figure>
+        <figure><img src="/img/badges/app-store.svg" alt="App Store" width="120" height="40"><figcaption>Coming soon</figcaption></figure>
+      </div>
+    </section>
+  </main>
+
+  <footer class="site-footer wrap">
+    <ul>
+      <li><a href="/support.html">Support</a></li>
+      <li><a href="/privacy.html">Privacy policy</a></li>
+      <li><a href="/delete-account.html">Delete your account</a></li>
+    </ul>
+    <p>&copy; 2026 Ingletide. Made in British Columbia.</p>
+  </footer>
+</body>
+</html>
