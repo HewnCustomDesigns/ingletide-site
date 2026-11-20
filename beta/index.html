@@ -37,7 +37,11 @@
     .kicker { color: var(--ember); font-size: 1.05rem; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; margin: 0 0 0.75rem; }
     .beta-hero h1 { font-family: var(--display); font-weight: 400; font-size: clamp(2.5rem, 6.5vw, 4.25rem); line-height: 1.05; letter-spacing: -0.01em; margin: 0 0 1.25rem; text-wrap: balance; }
     .beta-hero .lede { font-size: 1.25rem; max-width: 34rem; margin: 0 0 2rem; text-wrap: pretty; }
-    .join-note { margin: 0.9rem 0 0; font-size: 0.95rem; color: var(--smoke); max-width: 30rem; }
+    .cta { list-style: none; counter-reset: c; padding: 0; margin: 0; display: grid; gap: 1.5rem; max-width: 32rem; }
+    .cta li { counter-increment: c; display: grid; grid-template-columns: 2rem 1fr; gap: 0.6rem 0.75rem; align-items: center; }
+    .cta li::before { content: counter(c); font-family: var(--display); font-size: 1.9rem; line-height: 1; color: var(--ember); text-align: center; }
+    .cta .button { justify-self: start; }
+    .cta p { grid-column: 2; margin: 0; font-size: 0.95rem; color: var(--smoke); }
 
     .fit { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
     .fit li { background: var(--coal); border: 1px solid var(--line); border-radius: 14px; padding: 1.25rem 1.25rem 1.35rem; }
@@ -66,6 +70,7 @@
     .again { text-align: left; }
     .again h2 { margin-bottom: 1rem; }
     .again p { margin: 0 0 1.75rem; }
+    .pair { display: flex; flex-wrap: wrap; gap: 0.75rem; }
 
     @media (max-width: 36rem) {
       .beta-hero { padding-top: 1rem; }
@@ -94,8 +99,16 @@
         <p class="kicker">Early testers wanted</p>
         <h1>Help shape Ingletide before it launches.</h1>
         <p class="lede">We're looking for families, couples and friend groups on Android who spend time together regularly. Try Ingletide for two weeks, then tell us how it went.</p>
-        <a class="button" href="https://groups.google.com/g/ingletide-testers">Join the tester group</a>
-        <p class="join-note">Sign in with the Google account your Android phone uses for the Play Store, then tap <strong>Join group</strong>.</p>
+        <ol class="cta">
+          <li>
+            <a class="button" href="https://groups.google.com/g/ingletide-testers">Join the tester group</a>
+            <p>Use the Google account your Android phone uses for the Play Store, and tap <strong>Join group</strong>. If Google says you don't have permission, tap <strong>Sign in</strong> at the top right first.</p>
+          </li>
+          <li>
+            <a class="button" href="https://play.google.com/apps/testing/com.hewncustomdesigns.hearth">Get the app on Google Play</a>
+            <p>Once you've joined, tap <strong>Become a tester</strong>, then install Ingletide from Google Play.</p>
+          </li>
+        </ol>
       </div>
     </section>
 
@@ -111,8 +124,8 @@
     <section class="section wrap">
       <h2>What you'll do</h2>
       <ol class="steps">
-        <li><h3>Join the group</h3><p>Tap the button above. Invite the people you spend time with to join too.</p></li>
-        <li><h3>Install the app</h3><p>We'll send the group a Google Play link as soon as testing opens.</p></li>
+        <li><h3>Join the group</h3><p>Tap the first button above. Invite the people you spend time with to join too.</p></li>
+        <li><h3>Install the app</h3><p>Tap the second button, then <strong>Become a tester</strong>, and install Ingletide from Google Play.</p></li>
         <li><h3>Use it for two weeks</h3><p>When you're together, tap Start together time, lock your phones and set them aside. Please stay in the test for at least 14 days.</p></li>
         <li><h3>Answer three questions</h3><p>A short form at the end. It takes about five minutes.</p></li>
       </ol>
@@ -143,8 +156,11 @@
 
     <section class="section wrap again">
       <h2>Coming soon to your app store</h2>
-      <p>Testers help us get there. Once Ingletide launches, you'll find it here.</p>
-      <a class="button" href="https://groups.google.com/g/ingletide-testers">Join the tester group</a>
+      <p>Testers can start today. Everyone else will find Ingletide here at launch.</p>
+      <div class="pair">
+        <a class="button" href="https://groups.google.com/g/ingletide-testers">1. Join the tester group</a>
+        <a class="button" href="https://play.google.com/apps/testing/com.hewncustomdesigns.hearth">2. Get the app on Google Play</a>
+      </div>
       <div class="soon">
         <figure><img src="/img/badges/google-play.png" alt="Google Play" width="564" height="168"><figcaption>Coming soon</figcaption></figure>
         <figure><img src="/img/badges/app-store.svg" alt="App Store" width="120" height="40"><figcaption>Coming soon</figcaption></figure>
