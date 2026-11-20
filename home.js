@@ -6,10 +6,13 @@ const ease = t => 1 - Math.pow(1 - t, 3);
 const lerp = (a, b, t) => a + (b - a) * t;
 
 document.querySelectorAll('img.logo').forEach(i => i.src = A.logo);
-// Official store badges (Google Play, App Store), one size
+// Official store badges (Google Play, App Store), one size. Greyed out and not
+// links until launch; to go live, swap each <span class="store soon"> back to
+// <a class="store" href="..."> (Play: details?id=com.hewncustomdesigns.hearth,
+// App Store: apps.apple.com/app/id6834680745) and drop the captions.
 document.querySelectorAll('[data-stores]').forEach(el => {
-  el.innerHTML = '<a class="store" href="https://play.google.com/store/apps/details?id=com.hewncustomdesigns.hearth"><img src="/img/badges/google-play.png" alt="Get it on Google Play" width="564" height="168"></a>' +
-                 '<a class="store" href="https://apps.apple.com/app/id6834680745"><img src="/img/badges/app-store.svg" alt="Download on the App Store" width="120" height="40"></a>';
+  el.innerHTML = '<span class="store soon"><img src="/img/badges/google-play.png" alt="Google Play, coming soon" width="564" height="168"><small aria-hidden="true">Coming soon</small></span>' +
+                 '<span class="store soon"><img src="/img/badges/app-store.svg" alt="App Store, coming soon" width="120" height="40"><small aria-hidden="true">Coming soon</small></span>';
 });
 
 /* Hero phone fire (stage: campfire) */
