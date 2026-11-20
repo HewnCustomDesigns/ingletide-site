@@ -42,6 +42,7 @@
     .cta li::before { content: counter(c); font-family: var(--display); font-size: 1.9rem; line-height: 1; color: var(--ember); text-align: center; }
     .cta .button { justify-self: start; }
     .cta p { grid-column: 2; margin: 0; font-size: 0.95rem; color: var(--smoke); }
+    .cta .shot { grid-column: 2; justify-self: start; max-width: 100%; height: auto; background: #fff; border-radius: 10px; padding: 0.35rem 0.5rem; box-shadow: 0 0 0 1px var(--line); }
 
     .fit { list-style: none; padding: 0; margin: 0; display: grid; gap: 1rem; grid-template-columns: repeat(auto-fit, minmax(14rem, 1fr)); }
     .fit li { background: var(--coal); border: 1px solid var(--line); border-radius: 14px; padding: 1.25rem 1.25rem 1.35rem; }
@@ -102,7 +103,9 @@
         <ol class="cta">
           <li>
             <a class="button" href="https://groups.google.com/g/ingletide-testers">Join the tester group</a>
-            <p>Use the Google account your Android phone uses for the Play Store, and tap <strong>Join group</strong>. If Google says you don't have permission, tap <strong>Sign in</strong> at the top right first.</p>
+            <p>Use the Google account your Android phone uses for the Play Store, and tap <strong>Ask to join group</strong> at the top of the page:</p>
+            <img class="shot" src="/img/join-group.png" width="396" height="56" alt="The Ingletide Testers group page, with the Ask to join group button beside the group name">
+            <p>Ignore the "You don't have permission" message underneath; it goes away once you're in. Not signed in? Tap <strong>Sign in</strong> at the top right first.</p>
           </li>
           <li>
             <a class="button" href="https://play.google.com/apps/testing/com.hewncustomdesigns.hearth">Get the app on Google Play</a>
