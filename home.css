@@ -58,6 +58,11 @@ a { color: var(--present); }
 .store.soon img { opacity: 0.45; filter: grayscale(1); }
 .store.soon small { font-size: 12px; font-weight: 600; letter-spacing: 0.08em; text-transform: uppercase; color: var(--muted); }
 .close .store.soon { align-items: center; }
+/* Become a tester: under the greyed-out badges, until launch */
+.tester-btn { display: inline-block; margin-top: 22px; background: var(--present); color: var(--on-present); font-weight: 600; font-size: 16px; text-decoration: none; padding: 13px 24px; border-radius: 999px; transition: background 160ms var(--ease-out), transform 140ms var(--ease-out); }
+.tester-btn:hover { background: var(--core); }
+.tester-btn:active { transform: scale(0.97); }
+.close .tester-btn { margin-top: -6px; }
 
 /* Hero */
 .hero { display: grid; grid-template-columns: 1fr 0.78fr; gap: 56px; align-items: center; padding-block: 24px 80px; }
@@ -333,7 +338,3 @@ a { color: var(--present); }
 
 @media (max-width: 420px) { .brand { font-size: 26px; } .brand img { width: 40px; height: 40px; } }
 
-/* Phones: header keeps only Become a tester (Support and Privacy are in the footer) */
-@media (max-width: 480px) {
-  .site-nav nav .hide-xs { display: none; }
-}
