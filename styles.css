@@ -273,6 +273,7 @@ blockquote cite {
 .callout p + p { margin-top: 0.6rem; }
 
 @media (max-width: 36rem) {
+  .site-header nav .hide-xs { display: none; }
   body { font-size: 1.0625rem; }
   .site-header nav a { margin-left: 0.9rem; }
   .hearth { min-height: 70vh; padding-bottom: 3.5rem; }

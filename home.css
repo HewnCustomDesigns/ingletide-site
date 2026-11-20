@@ -332,3 +332,8 @@ a { color: var(--present); }
 .ms .msc { position: absolute; left: 0; right: 0; top: 46px; bottom: 0; overflow: hidden; scroll-behavior: smooth; }
 
 @media (max-width: 420px) { .brand { font-size: 26px; } .brand img { width: 40px; height: 40px; } }
+
+/* Phones: header keeps only Become a tester (Support and Privacy are in the footer) */
+@media (max-width: 480px) {
+  .site-nav nav .hide-xs { display: none; }
+}
